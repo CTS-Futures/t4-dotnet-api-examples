@@ -153,13 +153,8 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>copy "C:\Program Files\CTS\T4ClientSim\bin\System.Data.SQLite.40.DLL" "$(TargetDir)"
-copy "C:\Program Files\CTS\T4ClientSim\bin\zlib1.dll" "$(TargetDir)"
-copy "C:\Program Files\CTS\T4ClientSim\bin\System.Collections.Immutable.dll" "$(TargetDir)"
-copy "C:\Program Files\CTS\T4ClientSim\bin\Newtonsoft.Json.dll" "$(TargetDir)"
-copy "C:\Program Files\CTS\T4ClientSim\bin\T4Definitions.47.dll" "$(TargetDir)"
-copy "C:\Program Files\CTS\T4ClientSim\bin\T4Messages.47.dll" "$(TargetDir)"
-copy "C:\Program Files\CTS\T4ClientSim\bin\T4Connection.47.dll" "$(TargetDir)"
-copy "C:\Program Files\CTS\T4ClientSim\bin\T4TraceListener.47.dll" "$(TargetDir)"</PostBuildEvent>
+    <PostBuildEvent>copy "$(ProjectDir)..\components\System.Data.SQLite.40.DLL" "$(TargetDir)"
+copy "$(ProjectDir)..\components\zlib1.dll" "$(TargetDir)"
+copy "$(ProjectDir)..\components\System.Collections.Immutable.dll" "$(TargetDir)"</PostBuildEvent>
   </PropertyGroup>
 </Project>

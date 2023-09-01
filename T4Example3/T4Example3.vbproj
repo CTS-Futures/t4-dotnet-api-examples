@@ -144,9 +144,6 @@
     <PackageReference Include="CTS.T4Data">
       <Version>4.7.71.34</Version>
     </PackageReference>
-    <PackageReference Include="CTS.T4Grid">
-      <Version>4.7.71.34</Version>
-    </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.1</Version>
     </PackageReference>

@@ -284,3 +284,8 @@ _sgbak/
 *.t4zip
 /Developer Guides/T4FixExampleQFn/FixOutputFiles
 
+/.vs/
+
+/.vs/t4-dotnet-api-examples/v17/.wsuo
+/.vs/T4Example/v17/.suo
+/.vs/slnx.sqlite

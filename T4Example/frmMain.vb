@@ -62,98 +62,98 @@ Public Class frmMain
         '
         'cmdBuy
         '
-        Me.cmdBuy.Location = New System.Drawing.Point(15, 214)
+        Me.cmdBuy.Location = New System.Drawing.Point(39, 510)
         Me.cmdBuy.Name = "cmdBuy"
-        Me.cmdBuy.Size = New System.Drawing.Size(96, 23)
+        Me.cmdBuy.Size = New System.Drawing.Size(250, 55)
         Me.cmdBuy.TabIndex = 0
         Me.cmdBuy.Text = "Buy Order"
         '
         'cmdReviseOrder
         '
-        Me.cmdReviseOrder.Location = New System.Drawing.Point(246, 214)
+        Me.cmdReviseOrder.Location = New System.Drawing.Point(640, 510)
         Me.cmdReviseOrder.Name = "cmdReviseOrder"
-        Me.cmdReviseOrder.Size = New System.Drawing.Size(96, 23)
+        Me.cmdReviseOrder.Size = New System.Drawing.Size(249, 55)
         Me.cmdReviseOrder.TabIndex = 1
         Me.cmdReviseOrder.Text = "Revise Order"
         '
         'cmdCancelOrder
         '
-        Me.cmdCancelOrder.Location = New System.Drawing.Point(348, 214)
+        Me.cmdCancelOrder.Location = New System.Drawing.Point(905, 510)
         Me.cmdCancelOrder.Name = "cmdCancelOrder"
-        Me.cmdCancelOrder.Size = New System.Drawing.Size(96, 23)
+        Me.cmdCancelOrder.Size = New System.Drawing.Size(249, 55)
         Me.cmdCancelOrder.TabIndex = 2
         Me.cmdCancelOrder.Text = "Cancel Order"
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(12, 9)
+        Me.Label1.Location = New System.Drawing.Point(31, 21)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(447, 43)
+        Me.Label1.Size = New System.Drawing.Size(1162, 103)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "This example project shows the basics of logging into the API, getting market and" &
     " account data and submitting, revising and cancelling an order."
         '
         'cmdSelectAccount
         '
-        Me.cmdSelectAccount.Location = New System.Drawing.Point(170, 82)
+        Me.cmdSelectAccount.Location = New System.Drawing.Point(442, 196)
         Me.cmdSelectAccount.Name = "cmdSelectAccount"
-        Me.cmdSelectAccount.Size = New System.Drawing.Size(96, 23)
+        Me.cmdSelectAccount.Size = New System.Drawing.Size(250, 54)
         Me.cmdSelectAccount.TabIndex = 4
         Me.cmdSelectAccount.Text = "Select Account"
         '
         'cmdSelectMarket
         '
-        Me.cmdSelectMarket.Location = New System.Drawing.Point(170, 118)
+        Me.cmdSelectMarket.Location = New System.Drawing.Point(442, 281)
         Me.cmdSelectMarket.Name = "cmdSelectMarket"
-        Me.cmdSelectMarket.Size = New System.Drawing.Size(96, 23)
+        Me.cmdSelectMarket.Size = New System.Drawing.Size(250, 55)
         Me.cmdSelectMarket.TabIndex = 5
         Me.cmdSelectMarket.Text = "Select Market"
         '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(12, 52)
+        Me.Label2.Location = New System.Drawing.Point(31, 124)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(447, 30)
+        Me.Label2.Size = New System.Drawing.Size(1162, 72)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "Output from your actions appears in Trace and the Studio debugger Output window."
         '
         'Label3
         '
-        Me.Label3.Location = New System.Drawing.Point(12, 82)
+        Me.Label3.Location = New System.Drawing.Point(31, 196)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(152, 23)
+        Me.Label3.Size = New System.Drawing.Size(395, 54)
         Me.Label3.TabIndex = 7
         Me.Label3.Text = "First, select an account:"
         '
         'Label4
         '
-        Me.Label4.Location = New System.Drawing.Point(12, 123)
+        Me.Label4.Location = New System.Drawing.Point(31, 293)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(152, 23)
+        Me.Label4.Size = New System.Drawing.Size(395, 55)
         Me.Label4.TabIndex = 8
         Me.Label4.Text = "Now, select a market:"
         '
         'Label5
         '
-        Me.Label5.Location = New System.Drawing.Point(12, 169)
+        Me.Label5.Location = New System.Drawing.Point(31, 403)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(447, 42)
+        Me.Label5.Size = New System.Drawing.Size(1162, 100)
         Me.Label5.TabIndex = 9
         Me.Label5.Text = "Submit an order (details are hardcoded), then revise or cancel it if it doesn't f" &
     "ill. See the code behind the Submit Order button to change the order details"
         '
         'cmdSell
         '
-        Me.cmdSell.Location = New System.Drawing.Point(117, 214)
+        Me.cmdSell.Location = New System.Drawing.Point(304, 510)
         Me.cmdSell.Name = "cmdSell"
-        Me.cmdSell.Size = New System.Drawing.Size(96, 23)
+        Me.cmdSell.Size = New System.Drawing.Size(250, 55)
         Me.cmdSell.TabIndex = 10
         Me.cmdSell.Text = "Sell Order"
         '
         'frmMain
         '
-        Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
-        Me.ClientSize = New System.Drawing.Size(471, 264)
+        Me.AutoScaleBaseSize = New System.Drawing.Size(13, 31)
+        Me.ClientSize = New System.Drawing.Size(1508, 650)
         Me.Controls.Add(Me.cmdSell)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)

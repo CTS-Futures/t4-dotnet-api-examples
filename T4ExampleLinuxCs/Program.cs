@@ -13,21 +13,26 @@ Host moHost;
 Account moAccount = null;
 
 // Reference to the current exchange.
-Exchange moExchange;
+Exchange moExchange = null;
 
 // Reference to the current contract.
-Contract moContract;
+Contract moContract = null;
 
 // Reference to the current market.
 Market moPickerMarket = null;
 
+List<Market> moLoadedMarkets = null;
+
 // References to selected markets.
 Market moMarket1 = null;
-Market moMarket2 = null;
+//Market moMarket2 = null;
 
 // References to marketid's retrieved from saved settings.
 string mstrMarketID1;
-string mstrMarketID2;
+//string mstrMarketID2;
+
+EventWaitHandle ewhAccountComplete = new EventWaitHandle(false, EventResetMode.AutoReset);
+EventWaitHandle ewhMarketsComplete = new EventWaitHandle(false, EventResetMode.AutoReset);
 
 //Trace.Listeners.Add(new TextWriterTraceListener("CTSlog.txt"));
 //TODO: Add app.config, verify the trace is being stored in the right location defined in the config.
@@ -46,9 +51,7 @@ moHost.Accounts.AccountDetails += new T4.API.AccountList.AccountDetailsEventHand
 await Task.Delay(2000); //Give it time to load the messages
 
 while (true)
-{
-    if (moAccount == null && moPickerMarket == null)
-    {
+{    
         Console.WriteLine("\nMAIN MENU:\n");
         Console.WriteLine("Press 1 to print the accounts for the user");
         Console.WriteLine("Press 2 to print the exchange list for the user");
@@ -62,13 +65,12 @@ while (true)
                 PrintAccountList();
                 break;
             case "2":
-                PintExchangeList();
+                PrintExchangeList();
                 break;
             default:
                 Environment.Exit(42);
                 return;
-        }
-    }
+        }    
 }
 
 
@@ -114,7 +116,7 @@ void PrintAccountList()
 }
 
 
-void PintExchangeList()
+void PrintExchangeList()
 {
     try
     {
@@ -127,11 +129,12 @@ void PintExchangeList()
         foreach (var exchange in moHost.MasterUser.Exchanges)
         {
             exchangeIds.Add(exchange.Exchange.ExchangeID);
-            Console.WriteLine($"Exchange Index: {i}");
-            Console.WriteLine($"{exchange.Exchange.Description}");
+            Console.Write($"{i}. ");
+            Console.Write($"{exchange.Exchange.Description}");
+            Console.WriteLine();
             i++;
         }
-
+        Console.WriteLine("Enter the index of the exchange you want to select");
         var strExchangeSelected = Console.ReadLine();
         var exchangeIndex = int.Parse(strExchangeSelected);
         var selectedExchange = exchangeIds[exchangeIndex];
@@ -168,15 +171,20 @@ void PrintContracts(string selectedExchange)
             foreach (Contract oContract in moExchange.Contracts)
             {
                 contractIds.Add(oContract.ContractID);
-                Console.WriteLine($"Contract Index: {i}");
-                Console.WriteLine(oContract.Description);
+                Console.Write($"{i}. ");
+                Console.Write(oContract.Description);
+                Console.WriteLine();
                 i++;
             }
+            Console.WriteLine("Enter the index of the contract you want to select");
             var strContractSelected = Console.ReadLine();
             var contractIndex = int.Parse(strContractSelected);
             var selectedContract = contractIds[contractIndex];
             moContract = moExchange.Contracts.SingleOrDefault(c => c.ContractID == selectedContract);
-            PrintMarkets(selectedContract);
+            LoadMarkets(selectedContract);
+            ewhMarketsComplete.WaitOne();
+            DisplayMarkets();
+            DisplayPosition();
         }
         catch (Exception ex)
         {
@@ -186,16 +194,16 @@ void PrintContracts(string selectedExchange)
     }
 }
 
-void PrintMarkets(string selectedContract)
+void LoadMarkets(string selectedContract)
 {
-
     moContract.GetMarkets(0, StrategyType.None, e2 =>
     {
-        DisplayMarkets(e2);
+        moLoadedMarkets = e2.Markets.GetSortedList();
+        ewhMarketsComplete.Set();
     });
 }
 
-void DisplayMarkets(MarketListEventArgs e)
+void DisplayMarkets()
 {
     Console.Clear();
     // Populate the list of markets available for the current contract.
@@ -207,17 +215,20 @@ void DisplayMarkets(MarketListEventArgs e)
         int i = 0;
         var marketIds = new List<string>();
         // Add the markets to the dropdown list.
-        foreach (Market oMarket in e.Markets.GetSortedList())
+        foreach (Market oMarket in moLoadedMarkets)
         {
             marketIds.Add(oMarket.MarketID);
-            Console.WriteLine($"Market Index: {i}");
-            Console.WriteLine(oMarket.Description);
+            Console.Write($"{i}. ");
+            Console.Write(oMarket.Description);
+            Console.WriteLine();
             i++;
         }
+        Console.WriteLine("Enter the index of the market you want to select");
         var strMarketSelected = Console.ReadLine();
         var marketIndex = int.Parse(strMarketSelected);
         var selectedMarket = marketIds[marketIndex];
-        moPickerMarket = e.Markets.SingleOrDefault(m => m.MarketID == selectedMarket);
+        moPickerMarket = moLoadedMarkets.SingleOrDefault(m => m.MarketID == selectedMarket);
+
     }
     catch (Exception ex)
     {
@@ -234,14 +245,15 @@ void PrintAccountInformation(string selectedAccount)
     if (moAccount != null)
     {
         OnAccountDetails(new AccountDetailsEventArgs(moAccount));
-        moAccount.OrderUpdate += new T4.API.Account.OrderUpdateEventHandler(moAccount_OrderUpdate);
-        moAccount.PositionUpdate += new T4.API.Account.PositionUpdateEventHandler(moAccounts_PositionUpdate);
+        //moAccount.OrderUpdate += new T4.API.Account.OrderUpdateEventHandler(moAccount_OrderUpdate);
+        //moAccount.PositionUpdate += new T4.API.Account.PositionUpdateEventHandler(moAccounts_PositionUpdate);
         moAccount.AccountUpdate += new T4.API.Account.AccountUpdateEventHandler(moAccounts_AccountUpdate);
-
-
+ 
         Console.WriteLine("Loading Account Information ...");
+        ewhAccountComplete.WaitOne();
+
         //// Display the current account balance.
-        //DisplayAccount();
+        DisplayAccount();
 
         //// Refresh positions.
         //DisplayPosition(moMarket1, 1);
@@ -252,7 +264,7 @@ void PrintAccountInformation(string selectedAccount)
 
 void moAccount_OrderUpdate(OrderUpdateEventArgs e)
 {
-    DisplayOrders();
+
 }
 
 void DisplayOrders()
@@ -282,25 +294,25 @@ void DisplayOrders()
 }
 
 //' Event that is raised when positions for accounts have changed.
-void moAccounts_PositionUpdate(PositionUpdateEventArgs e)
-{
-    // Display the position details.
-    // If the position is for the current account
-    // then update the value.
-    if (e.Account == moAccount)
-    {
-        OnPositionUpdate(e);
-    }
-}
+//void moAccounts_PositionUpdate(PositionUpdateEventArgs e)
+//{
+//    // Display the position details.
+//    // If the position is for the current account
+//    // then update the value.
+//    if (e.Account == moAccount)
+//    {
+//        OnPositionUpdate(e);
+//    }
+//}
 
-void OnPositionUpdate(PositionUpdateEventArgs e)
-{
-    // Display the position details.
-    if (e.Position.Market == moMarket1)
-        DisplayPosition(e.Position.Market, 1);
-    else if (e.Position.Market == moMarket2)
-        DisplayPosition(e.Position.Market, 2);
-}
+//void OnPositionUpdate(PositionUpdateEventArgs e)
+//{
+//    // Display the position details.
+//    if (e.Position.Market == moMarket1)
+//        DisplayPosition(e.Position.Market, 1);
+//    //else if (e.Position.Market == moMarket2)
+//    //    DisplayPosition(e.Position.Market, 2);
+//}
 
 // Event that is raised when the accounts overall balance,
 // P&L or margin details have changed.
@@ -308,7 +320,8 @@ void moAccounts_AccountUpdate(AccountUpdateEventArgs e)
 {
     // Invoke the update.
     // This places process on GUI thread.
-    DisplayAccount();
+    //DisplayAccount();
+    
 }
 
 void DisplayAccounts()
@@ -320,17 +333,10 @@ void DisplayAccounts()
         moHost.EnterLock();
 
         // Display the account list.
-
         foreach (Account oAccount in moHost.Accounts)
         {
             OnAccountDetails(new AccountDetailsEventArgs(oAccount));
         }
-
-        //if (cboAccounts.Items.Count > 0)
-        //{
-        //    cboAccounts.SelectedIndex = 0;
-        //}
-
     }
     catch (Exception ex)
     {
@@ -350,27 +356,23 @@ void OnAccountDetails(AccountDetailsEventArgs e)
     // Check to see if the account exists prior to adding/subscribing to it.
     if (e.Account.Subscribed != true)
     {
-
-        //// Add the account to the list.
-        //cboAccounts.Items.Add(e.Account);
-
         // Subscribe to the account.
         e.Account.Subscribe(e2 =>
         {
             moAccounts_AccountComplete(e2);
         });
-
     }
 }
 void moAccounts_AccountComplete(AccountCompleteEventArgs e)
 {
-    DisplayAccount();
+    //DisplayAccount();
 
     // Refresh positions.
-    DisplayPosition(moMarket1, 1);
-    DisplayPosition(moMarket2, 2);
+    //DisplayPosition(moMarket1, 1);
+    //DisplayPosition(moMarket2, 2);
 
-    DisplayOrders();
+    //DisplayOrders();
+    ewhAccountComplete.Set();
 }
 
 void DisplayAccount()
@@ -391,10 +393,10 @@ void DisplayAccount()
         }
         Console.WriteLine();
         DisplayOrders();
-    }
+    }   
 }
 
-void DisplayPosition(Market poMarket, int piID)
+void DisplayPosition()
 {
     string strNet = "";
     string strBuys = "";
@@ -403,13 +405,13 @@ void DisplayPosition(Market poMarket, int piID)
     try
     {
 
-        if ((poMarket != null) && (moAccount != null))
+        if ((moPickerMarket != null) && (moAccount != null))
         {
 
             // Display positions for current account and market1.
 
             // Reference the market's positions.
-            Position oPosition = moAccount.Positions[poMarket.MarketID];
+            Position oPosition = moAccount.Positions[moPickerMarket.MarketID];
 
             if ((oPosition != null))
             {

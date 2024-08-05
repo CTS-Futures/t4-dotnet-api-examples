@@ -8,12 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CTS.T4API" Version="4.7.72.45-rc1" />
-    <PackageReference Include="CTS.T4Data" Version="4.7.72.43" />
+    <PackageReference Include="CTS.T4API" Version="4.7.72.49-rc2" />
+    <PackageReference Include="CTS.T4Data" Version="4.7.72.48" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="App.config">
+    <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

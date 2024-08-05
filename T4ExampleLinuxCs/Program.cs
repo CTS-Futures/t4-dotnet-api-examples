@@ -1,11 +1,13 @@
 ﻿using T4.API;
-using T4;
 using System.Diagnostics;
+using T4;
+using T4.TraceListener;
 
 Trace.AutoFlush = true;
 Trace.IndentSize = 2;
-var t4Trace = new T4.TraceListener.T4TraceListener();
+var t4Trace = new T4TraceListener();
 Trace.Listeners.Add(t4Trace);
+
 
 Host moHost;
 

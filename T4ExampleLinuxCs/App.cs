@@ -47,9 +47,30 @@ namespace T4ExampleLinuxCs
             {
                 Console.WriteLine(e.Account.AccountID);
             }
-
-
-            moHost = new Host(APIServerType.Simulator, "T4Example", "112A04B0-5AAF-42F4-994E-FA7CB959C60B", "CTSDEV", "danforero03", "Temp123$");
+            var logged = false;
+            while (!logged)
+            {
+                Console.Clear();
+                Console.WriteLine("Welcome to the T4 API console App example:");
+                Console.WriteLine("Enter your Firm:");
+                var firm = Console.ReadLine();
+                Console.WriteLine("Enter your Username:");
+                var username = Console.ReadLine();
+                Console.WriteLine("Enter your Password:");
+                var password = Console.ReadLine();
+                try
+                {
+                    moHost = new Host(APIServerType.Simulator, "T4Example", "112A04B0-5AAF-42F4-994E-FA7CB959C60B", firm, username, password);
+                    logged = true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    _log.LogError($"Error creating host: {ex.ToString()}");
+                    Console.ReadLine();
+                }
+            }
+                                    
             moHost.Accounts.AccountDetails += new T4.API.AccountList.AccountDetailsEventHandler(moAccounts_AccountDetails);
 
             await Task.Delay(2000); //Give it time to load the messages

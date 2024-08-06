@@ -149,8 +149,6 @@ namespace T4Example2CSharp
             this.lblAccount = new System.Windows.Forms.Label();
             this.txtCash = new System.Windows.Forms.TextBox();
             this.grpMarkets = new System.Windows.Forms.GroupBox();
-            this.txtMode = new System.Windows.Forms.TextBox();
-            this.lblMode = new System.Windows.Forms.Label();
             this.lblMisc1 = new System.Windows.Forms.Label();
             this.cmdRunMisc1 = new System.Windows.Forms.Button();
             this.cboMisc1 = new System.Windows.Forms.ComboBox();
@@ -202,6 +200,8 @@ namespace T4Example2CSharp
             this.lstOrders = new System.Windows.Forms.ListBox();
             this.lblOrderInfo = new System.Windows.Forms.Label();
             this.grpMarket2 = new System.Windows.Forms.GroupBox();
+            this.lblMode = new System.Windows.Forms.Label();
+            this.txtMode = new System.Windows.Forms.TextBox();
             this.grpAccountPicker.SuspendLayout();
             this.grpMarkets.SuspendLayout();
             this.grpOrders.SuspendLayout();
@@ -211,9 +211,9 @@ namespace T4Example2CSharp
             // lblMarket
             // 
             this.lblMarket.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMarket.Location = new System.Drawing.Point(68, 157);
+            this.lblMarket.Location = new System.Drawing.Point(26, 66);
             this.lblMarket.Name = "lblMarket";
-            this.lblMarket.Size = new System.Drawing.Size(161, 50);
+            this.lblMarket.Size = new System.Drawing.Size(62, 21);
             this.lblMarket.TabIndex = 11;
             this.lblMarket.Text = "Market:";
             this.lblMarket.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -221,9 +221,9 @@ namespace T4Example2CSharp
             // cboMarkets
             // 
             this.cboMarkets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboMarkets.Location = new System.Drawing.Point(234, 160);
+            this.cboMarkets.Location = new System.Drawing.Point(90, 67);
             this.cboMarkets.Name = "cboMarkets";
-            this.cboMarkets.Size = new System.Drawing.Size(510, 39);
+            this.cboMarkets.Size = new System.Drawing.Size(196, 21);
             this.cboMarkets.TabIndex = 6;
             this.cboMarkets.TabStop = false;
             this.cboMarkets.SelectedIndexChanged += new System.EventHandler(this.cboMarkets_SelectedIndexChanged);
@@ -231,9 +231,9 @@ namespace T4Example2CSharp
             // lblContract
             // 
             this.lblContract.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContract.Location = new System.Drawing.Point(68, 100);
+            this.lblContract.Location = new System.Drawing.Point(26, 42);
             this.lblContract.Name = "lblContract";
-            this.lblContract.Size = new System.Drawing.Size(161, 50);
+            this.lblContract.Size = new System.Drawing.Size(62, 21);
             this.lblContract.TabIndex = 10;
             this.lblContract.Text = "Contract:";
             this.lblContract.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -241,9 +241,9 @@ namespace T4Example2CSharp
             // lblExchange
             // 
             this.lblExchange.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExchange.Location = new System.Drawing.Point(21, 43);
+            this.lblExchange.Location = new System.Drawing.Point(8, 18);
             this.lblExchange.Name = "lblExchange";
-            this.lblExchange.Size = new System.Drawing.Size(197, 50);
+            this.lblExchange.Size = new System.Drawing.Size(76, 21);
             this.lblExchange.TabIndex = 9;
             this.lblExchange.Text = "Exchange:";
             this.lblExchange.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -251,9 +251,9 @@ namespace T4Example2CSharp
             // cboContracts
             // 
             this.cboContracts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboContracts.Location = new System.Drawing.Point(234, 103);
+            this.cboContracts.Location = new System.Drawing.Point(90, 43);
             this.cboContracts.Name = "cboContracts";
-            this.cboContracts.Size = new System.Drawing.Size(510, 39);
+            this.cboContracts.Size = new System.Drawing.Size(196, 21);
             this.cboContracts.Sorted = true;
             this.cboContracts.TabIndex = 8;
             this.cboContracts.TabStop = false;
@@ -265,9 +265,9 @@ namespace T4Example2CSharp
             this.cboExchanges.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.cboExchanges.Location = new System.Drawing.Point(234, 45);
+            this.cboExchanges.Location = new System.Drawing.Point(90, 19);
             this.cboExchanges.Name = "cboExchanges";
-            this.cboExchanges.Size = new System.Drawing.Size(510, 39);
+            this.cboExchanges.Size = new System.Drawing.Size(196, 21);
             this.cboExchanges.Sorted = true;
             this.cboExchanges.TabIndex = 7;
             this.cboExchanges.TabStop = false;
@@ -280,9 +280,9 @@ namespace T4Example2CSharp
             this.grpAccountPicker.Controls.Add(this.lblAccount);
             this.grpAccountPicker.Controls.Add(this.txtCash);
             this.grpAccountPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpAccountPicker.Location = new System.Drawing.Point(21, 19);
+            this.grpAccountPicker.Location = new System.Drawing.Point(8, 8);
             this.grpAccountPicker.Name = "grpAccountPicker";
-            this.grpAccountPicker.Size = new System.Drawing.Size(1861, 124);
+            this.grpAccountPicker.Size = new System.Drawing.Size(716, 52);
             this.grpAccountPicker.TabIndex = 64;
             this.grpAccountPicker.TabStop = false;
             this.grpAccountPicker.Text = "Account";
@@ -290,9 +290,9 @@ namespace T4Example2CSharp
             // cboAccounts
             // 
             this.cboAccounts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboAccounts.Location = new System.Drawing.Point(333, 52);
+            this.cboAccounts.Location = new System.Drawing.Point(128, 22);
             this.cboAccounts.Name = "cboAccounts";
-            this.cboAccounts.Size = new System.Drawing.Size(541, 39);
+            this.cboAccounts.Size = new System.Drawing.Size(208, 21);
             this.cboAccounts.Sorted = true;
             this.cboAccounts.TabIndex = 42;
             this.cboAccounts.TabStop = false;
@@ -301,9 +301,9 @@ namespace T4Example2CSharp
             // lblCash
             // 
             this.lblCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCash.Location = new System.Drawing.Point(905, 52);
+            this.lblCash.Location = new System.Drawing.Point(348, 22);
             this.lblCash.Name = "lblCash";
-            this.lblCash.Size = new System.Drawing.Size(106, 51);
+            this.lblCash.Size = new System.Drawing.Size(41, 21);
             this.lblCash.TabIndex = 44;
             this.lblCash.Text = "Cash:";
             this.lblCash.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -311,9 +311,9 @@ namespace T4Example2CSharp
             // lblAccount
             // 
             this.lblAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccount.Location = new System.Drawing.Point(57, 52);
+            this.lblAccount.Location = new System.Drawing.Point(22, 22);
             this.lblAccount.Name = "lblAccount";
-            this.lblAccount.Size = new System.Drawing.Size(307, 51);
+            this.lblAccount.Size = new System.Drawing.Size(118, 21);
             this.lblAccount.TabIndex = 41;
             this.lblAccount.Text = "Current Account:";
             this.lblAccount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -321,10 +321,10 @@ namespace T4Example2CSharp
             // txtCash
             // 
             this.txtCash.BackColor = System.Drawing.Color.White;
-            this.txtCash.Location = new System.Drawing.Point(1017, 52);
+            this.txtCash.Location = new System.Drawing.Point(391, 22);
             this.txtCash.Name = "txtCash";
             this.txtCash.ReadOnly = true;
-            this.txtCash.Size = new System.Drawing.Size(280, 39);
+            this.txtCash.Size = new System.Drawing.Size(108, 20);
             this.txtCash.TabIndex = 43;
             this.txtCash.TabStop = false;
             this.txtCash.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -368,41 +368,19 @@ namespace T4Example2CSharp
             this.grpMarkets.Controls.Add(this.lblOfferVol);
             this.grpMarkets.Controls.Add(this.lblBidVol);
             this.grpMarkets.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpMarkets.Location = new System.Drawing.Point(21, 176);
+            this.grpMarkets.Location = new System.Drawing.Point(8, 74);
             this.grpMarkets.Name = "grpMarkets";
-            this.grpMarkets.Size = new System.Drawing.Size(2007, 449);
+            this.grpMarkets.Size = new System.Drawing.Size(772, 188);
             this.grpMarkets.TabIndex = 66;
             this.grpMarkets.TabStop = false;
             this.grpMarkets.Text = "Market 1";
             // 
-            // txtMode
-            // 
-            this.txtMode.BackColor = System.Drawing.Color.White;
-            this.txtMode.ForeColor = System.Drawing.Color.Crimson;
-            this.txtMode.Location = new System.Drawing.Point(1776, 327);
-            this.txtMode.Name = "txtMode";
-            this.txtMode.ReadOnly = true;
-            this.txtMode.Size = new System.Drawing.Size(208, 39);
-            this.txtMode.TabIndex = 69;
-            this.txtMode.TabStop = false;
-            this.txtMode.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // lblMode
-            // 
-            this.lblMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMode.Location = new System.Drawing.Point(1786, 279);
-            this.lblMode.Name = "lblMode";
-            this.lblMode.Size = new System.Drawing.Size(112, 43);
-            this.lblMode.TabIndex = 68;
-            this.lblMode.Text = "Mode:";
-            this.lblMode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblMisc1
             // 
             this.lblMisc1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMisc1.Location = new System.Drawing.Point(1004, 379);
+            this.lblMisc1.Location = new System.Drawing.Point(386, 159);
             this.lblMisc1.Name = "lblMisc1";
-            this.lblMisc1.Size = new System.Drawing.Size(182, 48);
+            this.lblMisc1.Size = new System.Drawing.Size(70, 20);
             this.lblMisc1.TabIndex = 67;
             this.lblMisc1.Text = "Misc Code:";
             this.lblMisc1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -410,9 +388,9 @@ namespace T4Example2CSharp
             // cmdRunMisc1
             // 
             this.cmdRunMisc1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdRunMisc1.Location = new System.Drawing.Point(1674, 379);
+            this.cmdRunMisc1.Location = new System.Drawing.Point(644, 159);
             this.cmdRunMisc1.Name = "cmdRunMisc1";
-            this.cmdRunMisc1.Size = new System.Drawing.Size(99, 48);
+            this.cmdRunMisc1.Size = new System.Drawing.Size(38, 20);
             this.cmdRunMisc1.TabIndex = 66;
             this.cmdRunMisc1.TabStop = false;
             this.cmdRunMisc1.Text = "Run";
@@ -421,9 +399,9 @@ namespace T4Example2CSharp
             // cboMisc1
             // 
             this.cboMisc1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboMisc1.Location = new System.Drawing.Point(1196, 379);
+            this.cboMisc1.Location = new System.Drawing.Point(460, 159);
             this.cboMisc1.Name = "cboMisc1";
-            this.cboMisc1.Size = new System.Drawing.Size(468, 39);
+            this.cboMisc1.Size = new System.Drawing.Size(180, 21);
             this.cboMisc1.Sorted = true;
             this.cboMisc1.TabIndex = 65;
             this.cboMisc1.TabStop = false;
@@ -432,9 +410,9 @@ namespace T4Example2CSharp
             // 
             this.lblLastPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastPrice.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblLastPrice.Location = new System.Drawing.Point(1058, 279);
+            this.lblLastPrice.Location = new System.Drawing.Point(407, 117);
             this.lblLastPrice.Name = "lblLastPrice";
-            this.lblLastPrice.Size = new System.Drawing.Size(156, 48);
+            this.lblLastPrice.Size = new System.Drawing.Size(60, 20);
             this.lblLastPrice.TabIndex = 25;
             this.lblLastPrice.Text = "Price:";
             this.lblLastPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -443,9 +421,9 @@ namespace T4Example2CSharp
             // 
             this.lblOfferPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOfferPrice.ForeColor = System.Drawing.Color.Crimson;
-            this.lblOfferPrice.Location = new System.Drawing.Point(819, 279);
+            this.lblOfferPrice.Location = new System.Drawing.Point(315, 117);
             this.lblOfferPrice.Name = "lblOfferPrice";
-            this.lblOfferPrice.Size = new System.Drawing.Size(156, 48);
+            this.lblOfferPrice.Size = new System.Drawing.Size(60, 20);
             this.lblOfferPrice.TabIndex = 24;
             this.lblOfferPrice.Text = "Price:";
             this.lblOfferPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -454,9 +432,9 @@ namespace T4Example2CSharp
             // 
             this.lblBidPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBidPrice.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblBidPrice.Location = new System.Drawing.Point(580, 279);
+            this.lblBidPrice.Location = new System.Drawing.Point(223, 117);
             this.lblBidPrice.Name = "lblBidPrice";
-            this.lblBidPrice.Size = new System.Drawing.Size(156, 48);
+            this.lblBidPrice.Size = new System.Drawing.Size(60, 20);
             this.lblBidPrice.TabIndex = 23;
             this.lblBidPrice.Text = "Price:";
             this.lblBidPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -464,9 +442,9 @@ namespace T4Example2CSharp
             // Label1
             // 
             this.Label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label1.Location = new System.Drawing.Point(29, 279);
+            this.Label1.Location = new System.Drawing.Point(11, 117);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(546, 48);
+            this.Label1.Size = new System.Drawing.Size(210, 20);
             this.Label1.TabIndex = 22;
             this.Label1.Text = "Market Description:";
             this.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -474,10 +452,10 @@ namespace T4Example2CSharp
             // txtOfferVol1
             // 
             this.txtOfferVol1.BackColor = System.Drawing.Color.MistyRose;
-            this.txtOfferVol1.Location = new System.Drawing.Point(985, 327);
+            this.txtOfferVol1.Location = new System.Drawing.Point(379, 137);
             this.txtOfferVol1.Name = "txtOfferVol1";
             this.txtOfferVol1.ReadOnly = true;
-            this.txtOfferVol1.Size = new System.Drawing.Size(73, 39);
+            this.txtOfferVol1.Size = new System.Drawing.Size(28, 20);
             this.txtOfferVol1.TabIndex = 17;
             this.txtOfferVol1.TabStop = false;
             this.txtOfferVol1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -485,10 +463,10 @@ namespace T4Example2CSharp
             // txtLastVolTotal1
             // 
             this.txtLastVolTotal1.BackColor = System.Drawing.Color.Honeydew;
-            this.txtLastVolTotal1.Location = new System.Drawing.Point(1303, 327);
+            this.txtLastVolTotal1.Location = new System.Drawing.Point(501, 137);
             this.txtLastVolTotal1.Name = "txtLastVolTotal1";
             this.txtLastVolTotal1.ReadOnly = true;
-            this.txtLastVolTotal1.Size = new System.Drawing.Size(156, 39);
+            this.txtLastVolTotal1.Size = new System.Drawing.Size(60, 20);
             this.txtLastVolTotal1.TabIndex = 21;
             this.txtLastVolTotal1.TabStop = false;
             this.txtLastVolTotal1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -496,10 +474,10 @@ namespace T4Example2CSharp
             // txtLast1
             // 
             this.txtLast1.BackColor = System.Drawing.Color.Honeydew;
-            this.txtLast1.Location = new System.Drawing.Point(1063, 327);
+            this.txtLast1.Location = new System.Drawing.Point(409, 137);
             this.txtLast1.Name = "txtLast1";
             this.txtLast1.ReadOnly = true;
-            this.txtLast1.Size = new System.Drawing.Size(156, 39);
+            this.txtLast1.Size = new System.Drawing.Size(60, 20);
             this.txtLast1.TabIndex = 18;
             this.txtLast1.TabStop = false;
             this.txtLast1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -507,10 +485,10 @@ namespace T4Example2CSharp
             // txtNet1
             // 
             this.txtNet1.BackColor = System.Drawing.Color.White;
-            this.txtNet1.Location = new System.Drawing.Point(1464, 327);
+            this.txtNet1.Location = new System.Drawing.Point(563, 137);
             this.txtNet1.Name = "txtNet1";
             this.txtNet1.ReadOnly = true;
-            this.txtNet1.Size = new System.Drawing.Size(99, 39);
+            this.txtNet1.Size = new System.Drawing.Size(38, 20);
             this.txtNet1.TabIndex = 46;
             this.txtNet1.TabStop = false;
             this.txtNet1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -518,9 +496,9 @@ namespace T4Example2CSharp
             // lblNet
             // 
             this.lblNet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNet.Location = new System.Drawing.Point(1459, 279);
+            this.lblNet.Location = new System.Drawing.Point(561, 117);
             this.lblNet.Name = "lblNet";
-            this.lblNet.Size = new System.Drawing.Size(98, 43);
+            this.lblNet.Size = new System.Drawing.Size(38, 18);
             this.lblNet.TabIndex = 48;
             this.lblNet.Text = "Net:";
             this.lblNet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -528,10 +506,10 @@ namespace T4Example2CSharp
             // txtLastVol1
             // 
             this.txtLastVol1.BackColor = System.Drawing.Color.Honeydew;
-            this.txtLastVol1.Location = new System.Drawing.Point(1225, 327);
+            this.txtLastVol1.Location = new System.Drawing.Point(471, 137);
             this.txtLastVol1.Name = "txtLastVol1";
             this.txtLastVol1.ReadOnly = true;
-            this.txtLastVol1.Size = new System.Drawing.Size(72, 39);
+            this.txtLastVol1.Size = new System.Drawing.Size(28, 20);
             this.txtLastVol1.TabIndex = 20;
             this.txtLastVol1.TabStop = false;
             this.txtLastVol1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -539,9 +517,9 @@ namespace T4Example2CSharp
             // lblSells
             // 
             this.lblSells.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSells.Location = new System.Drawing.Point(1667, 279);
+            this.lblSells.Location = new System.Drawing.Point(641, 117);
             this.lblSells.Name = "lblSells";
-            this.lblSells.Size = new System.Drawing.Size(106, 43);
+            this.lblSells.Size = new System.Drawing.Size(41, 18);
             this.lblSells.TabIndex = 50;
             this.lblSells.Text = "Sells:";
             this.lblSells.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -550,10 +528,10 @@ namespace T4Example2CSharp
             // 
             this.txtBuys1.BackColor = System.Drawing.Color.White;
             this.txtBuys1.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.txtBuys1.Location = new System.Drawing.Point(1568, 327);
+            this.txtBuys1.Location = new System.Drawing.Point(603, 137);
             this.txtBuys1.Name = "txtBuys1";
             this.txtBuys1.ReadOnly = true;
-            this.txtBuys1.Size = new System.Drawing.Size(99, 39);
+            this.txtBuys1.Size = new System.Drawing.Size(38, 20);
             this.txtBuys1.TabIndex = 51;
             this.txtBuys1.TabStop = false;
             this.txtBuys1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -562,10 +540,10 @@ namespace T4Example2CSharp
             // 
             this.txtSells1.BackColor = System.Drawing.Color.White;
             this.txtSells1.ForeColor = System.Drawing.Color.Crimson;
-            this.txtSells1.Location = new System.Drawing.Point(1672, 327);
+            this.txtSells1.Location = new System.Drawing.Point(643, 137);
             this.txtSells1.Name = "txtSells1";
             this.txtSells1.ReadOnly = true;
-            this.txtSells1.Size = new System.Drawing.Size(99, 39);
+            this.txtSells1.Size = new System.Drawing.Size(38, 20);
             this.txtSells1.TabIndex = 53;
             this.txtSells1.TabStop = false;
             this.txtSells1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -573,9 +551,9 @@ namespace T4Example2CSharp
             // cmdGet1
             // 
             this.cmdGet1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdGet1.Location = new System.Drawing.Point(653, 224);
+            this.cmdGet1.Location = new System.Drawing.Point(251, 94);
             this.cmdGet1.Name = "cmdGet1";
-            this.cmdGet1.Size = new System.Drawing.Size(91, 48);
+            this.cmdGet1.Size = new System.Drawing.Size(35, 20);
             this.cmdGet1.TabIndex = 10;
             this.cmdGet1.TabStop = false;
             this.cmdGet1.Text = "Get";
@@ -584,20 +562,20 @@ namespace T4Example2CSharp
             // txtMarketDescription1
             // 
             this.txtMarketDescription1.BackColor = System.Drawing.Color.White;
-            this.txtMarketDescription1.Location = new System.Drawing.Point(39, 327);
+            this.txtMarketDescription1.Location = new System.Drawing.Point(15, 137);
             this.txtMarketDescription1.Name = "txtMarketDescription1";
             this.txtMarketDescription1.ReadOnly = true;
-            this.txtMarketDescription1.Size = new System.Drawing.Size(541, 39);
+            this.txtMarketDescription1.Size = new System.Drawing.Size(208, 20);
             this.txtMarketDescription1.TabIndex = 11;
             this.txtMarketDescription1.TabStop = false;
             // 
             // txtBid1
             // 
             this.txtBid1.BackColor = System.Drawing.Color.LightCyan;
-            this.txtBid1.Location = new System.Drawing.Point(585, 327);
+            this.txtBid1.Location = new System.Drawing.Point(225, 137);
             this.txtBid1.Name = "txtBid1";
             this.txtBid1.ReadOnly = true;
-            this.txtBid1.Size = new System.Drawing.Size(156, 39);
+            this.txtBid1.Size = new System.Drawing.Size(60, 20);
             this.txtBid1.TabIndex = 12;
             this.txtBid1.TabStop = false;
             this.txtBid1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -607,9 +585,9 @@ namespace T4Example2CSharp
             this.cmdSell1.BackColor = System.Drawing.Color.Crimson;
             this.cmdSell1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSell1.ForeColor = System.Drawing.Color.White;
-            this.cmdSell1.Location = new System.Drawing.Point(819, 379);
+            this.cmdSell1.Location = new System.Drawing.Point(315, 159);
             this.cmdSell1.Name = "cmdSell1";
-            this.cmdSell1.Size = new System.Drawing.Size(156, 48);
+            this.cmdSell1.Size = new System.Drawing.Size(60, 20);
             this.cmdSell1.TabIndex = 58;
             this.cmdSell1.TabStop = false;
             this.cmdSell1.Text = "Sell";
@@ -619,9 +597,9 @@ namespace T4Example2CSharp
             // lblBuys
             // 
             this.lblBuys.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuys.Location = new System.Drawing.Point(1563, 279);
+            this.lblBuys.Location = new System.Drawing.Point(601, 117);
             this.lblBuys.Name = "lblBuys";
-            this.lblBuys.Size = new System.Drawing.Size(98, 43);
+            this.lblBuys.Size = new System.Drawing.Size(38, 18);
             this.lblBuys.TabIndex = 49;
             this.lblBuys.Text = "Buys:";
             this.lblBuys.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -629,10 +607,10 @@ namespace T4Example2CSharp
             // txtOffer1
             // 
             this.txtOffer1.BackColor = System.Drawing.Color.MistyRose;
-            this.txtOffer1.Location = new System.Drawing.Point(824, 327);
+            this.txtOffer1.Location = new System.Drawing.Point(317, 137);
             this.txtOffer1.Name = "txtOffer1";
             this.txtOffer1.ReadOnly = true;
-            this.txtOffer1.Size = new System.Drawing.Size(156, 39);
+            this.txtOffer1.Size = new System.Drawing.Size(60, 20);
             this.txtOffer1.TabIndex = 14;
             this.txtOffer1.TabStop = false;
             this.txtOffer1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -642,9 +620,9 @@ namespace T4Example2CSharp
             this.cmdBuy1.BackColor = System.Drawing.Color.RoyalBlue;
             this.cmdBuy1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdBuy1.ForeColor = System.Drawing.Color.White;
-            this.cmdBuy1.Location = new System.Drawing.Point(580, 379);
+            this.cmdBuy1.Location = new System.Drawing.Point(223, 159);
             this.cmdBuy1.Name = "cmdBuy1";
-            this.cmdBuy1.Size = new System.Drawing.Size(156, 48);
+            this.cmdBuy1.Size = new System.Drawing.Size(60, 20);
             this.cmdBuy1.TabIndex = 55;
             this.cmdBuy1.TabStop = false;
             this.cmdBuy1.Text = "Buy";
@@ -654,10 +632,10 @@ namespace T4Example2CSharp
             // txtBidVol1
             // 
             this.txtBidVol1.BackColor = System.Drawing.Color.LightCyan;
-            this.txtBidVol1.Location = new System.Drawing.Point(746, 327);
+            this.txtBidVol1.Location = new System.Drawing.Point(287, 137);
             this.txtBidVol1.Name = "txtBidVol1";
             this.txtBidVol1.ReadOnly = true;
-            this.txtBidVol1.Size = new System.Drawing.Size(73, 39);
+            this.txtBidVol1.Size = new System.Drawing.Size(28, 20);
             this.txtBidVol1.TabIndex = 16;
             this.txtBidVol1.TabStop = false;
             this.txtBidVol1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -666,9 +644,9 @@ namespace T4Example2CSharp
             // 
             this.lblTotalVol.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalVol.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblTotalVol.Location = new System.Drawing.Point(1297, 279);
+            this.lblTotalVol.Location = new System.Drawing.Point(499, 117);
             this.lblTotalVol.Name = "lblTotalVol";
-            this.lblTotalVol.Size = new System.Drawing.Size(167, 48);
+            this.lblTotalVol.Size = new System.Drawing.Size(64, 20);
             this.lblTotalVol.TabIndex = 29;
             this.lblTotalVol.Text = "Total Vol:";
             this.lblTotalVol.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -677,9 +655,9 @@ namespace T4Example2CSharp
             // 
             this.lblLastVol.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastVol.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblLastVol.Location = new System.Drawing.Point(1219, 279);
+            this.lblLastVol.Location = new System.Drawing.Point(469, 117);
             this.lblLastVol.Name = "lblLastVol";
-            this.lblLastVol.Size = new System.Drawing.Size(84, 48);
+            this.lblLastVol.Size = new System.Drawing.Size(32, 20);
             this.lblLastVol.TabIndex = 28;
             this.lblLastVol.Text = "Vol:";
             this.lblLastVol.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -688,9 +666,9 @@ namespace T4Example2CSharp
             // 
             this.lblOfferVol.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOfferVol.ForeColor = System.Drawing.Color.Crimson;
-            this.lblOfferVol.Location = new System.Drawing.Point(980, 279);
+            this.lblOfferVol.Location = new System.Drawing.Point(377, 117);
             this.lblOfferVol.Name = "lblOfferVol";
-            this.lblOfferVol.Size = new System.Drawing.Size(83, 48);
+            this.lblOfferVol.Size = new System.Drawing.Size(32, 20);
             this.lblOfferVol.TabIndex = 27;
             this.lblOfferVol.Text = "Vol:";
             this.lblOfferVol.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -699,9 +677,9 @@ namespace T4Example2CSharp
             // 
             this.lblBidVol.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBidVol.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblBidVol.Location = new System.Drawing.Point(741, 279);
+            this.lblBidVol.Location = new System.Drawing.Point(285, 117);
             this.lblBidVol.Name = "lblBidVol";
-            this.lblBidVol.Size = new System.Drawing.Size(83, 48);
+            this.lblBidVol.Size = new System.Drawing.Size(32, 20);
             this.lblBidVol.TabIndex = 26;
             this.lblBidVol.Text = "Vol:";
             this.lblBidVol.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -709,9 +687,9 @@ namespace T4Example2CSharp
             // lblMisc2
             // 
             this.lblMisc2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMisc2.Location = new System.Drawing.Point(1004, 172);
+            this.lblMisc2.Location = new System.Drawing.Point(386, 72);
             this.lblMisc2.Name = "lblMisc2";
-            this.lblMisc2.Size = new System.Drawing.Size(182, 47);
+            this.lblMisc2.Size = new System.Drawing.Size(70, 20);
             this.lblMisc2.TabIndex = 64;
             this.lblMisc2.Text = "Misc Code:";
             this.lblMisc2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -719,9 +697,9 @@ namespace T4Example2CSharp
             // cmdRunMisc2
             // 
             this.cmdRunMisc2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdRunMisc2.Location = new System.Drawing.Point(1674, 172);
+            this.cmdRunMisc2.Location = new System.Drawing.Point(644, 72);
             this.cmdRunMisc2.Name = "cmdRunMisc2";
-            this.cmdRunMisc2.Size = new System.Drawing.Size(99, 47);
+            this.cmdRunMisc2.Size = new System.Drawing.Size(38, 20);
             this.cmdRunMisc2.TabIndex = 63;
             this.cmdRunMisc2.TabStop = false;
             this.cmdRunMisc2.Text = "Run";
@@ -730,9 +708,9 @@ namespace T4Example2CSharp
             // cboMisc2
             // 
             this.cboMisc2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboMisc2.Location = new System.Drawing.Point(1196, 172);
+            this.cboMisc2.Location = new System.Drawing.Point(460, 72);
             this.cboMisc2.Name = "cboMisc2";
-            this.cboMisc2.Size = new System.Drawing.Size(468, 39);
+            this.cboMisc2.Size = new System.Drawing.Size(180, 21);
             this.cboMisc2.Sorted = true;
             this.cboMisc2.TabIndex = 62;
             this.cboMisc2.TabStop = false;
@@ -740,10 +718,10 @@ namespace T4Example2CSharp
             // txtLast2
             // 
             this.txtLast2.BackColor = System.Drawing.Color.Honeydew;
-            this.txtLast2.Location = new System.Drawing.Point(1063, 119);
+            this.txtLast2.Location = new System.Drawing.Point(409, 50);
             this.txtLast2.Name = "txtLast2";
             this.txtLast2.ReadOnly = true;
-            this.txtLast2.Size = new System.Drawing.Size(156, 39);
+            this.txtLast2.Size = new System.Drawing.Size(60, 20);
             this.txtLast2.TabIndex = 36;
             this.txtLast2.TabStop = false;
             this.txtLast2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -751,10 +729,10 @@ namespace T4Example2CSharp
             // txtOfferVol2
             // 
             this.txtOfferVol2.BackColor = System.Drawing.Color.MistyRose;
-            this.txtOfferVol2.Location = new System.Drawing.Point(985, 119);
+            this.txtOfferVol2.Location = new System.Drawing.Point(379, 50);
             this.txtOfferVol2.Name = "txtOfferVol2";
             this.txtOfferVol2.ReadOnly = true;
-            this.txtOfferVol2.Size = new System.Drawing.Size(73, 39);
+            this.txtOfferVol2.Size = new System.Drawing.Size(28, 20);
             this.txtOfferVol2.TabIndex = 35;
             this.txtOfferVol2.TabStop = false;
             this.txtOfferVol2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -762,10 +740,10 @@ namespace T4Example2CSharp
             // txtBidVol2
             // 
             this.txtBidVol2.BackColor = System.Drawing.Color.LightCyan;
-            this.txtBidVol2.Location = new System.Drawing.Point(746, 119);
+            this.txtBidVol2.Location = new System.Drawing.Point(287, 50);
             this.txtBidVol2.Name = "txtBidVol2";
             this.txtBidVol2.ReadOnly = true;
-            this.txtBidVol2.Size = new System.Drawing.Size(73, 39);
+            this.txtBidVol2.Size = new System.Drawing.Size(28, 20);
             this.txtBidVol2.TabIndex = 34;
             this.txtBidVol2.TabStop = false;
             this.txtBidVol2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -773,10 +751,10 @@ namespace T4Example2CSharp
             // txtOffer2
             // 
             this.txtOffer2.BackColor = System.Drawing.Color.MistyRose;
-            this.txtOffer2.Location = new System.Drawing.Point(824, 119);
+            this.txtOffer2.Location = new System.Drawing.Point(317, 50);
             this.txtOffer2.Name = "txtOffer2";
             this.txtOffer2.ReadOnly = true;
-            this.txtOffer2.Size = new System.Drawing.Size(156, 39);
+            this.txtOffer2.Size = new System.Drawing.Size(60, 20);
             this.txtOffer2.TabIndex = 33;
             this.txtOffer2.TabStop = false;
             this.txtOffer2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -784,10 +762,10 @@ namespace T4Example2CSharp
             // txtBid2
             // 
             this.txtBid2.BackColor = System.Drawing.Color.LightCyan;
-            this.txtBid2.Location = new System.Drawing.Point(585, 119);
+            this.txtBid2.Location = new System.Drawing.Point(225, 50);
             this.txtBid2.Name = "txtBid2";
             this.txtBid2.ReadOnly = true;
-            this.txtBid2.Size = new System.Drawing.Size(156, 39);
+            this.txtBid2.Size = new System.Drawing.Size(60, 20);
             this.txtBid2.TabIndex = 32;
             this.txtBid2.TabStop = false;
             this.txtBid2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -795,19 +773,19 @@ namespace T4Example2CSharp
             // txtMarketDescription2
             // 
             this.txtMarketDescription2.BackColor = System.Drawing.Color.White;
-            this.txtMarketDescription2.Location = new System.Drawing.Point(39, 119);
+            this.txtMarketDescription2.Location = new System.Drawing.Point(15, 50);
             this.txtMarketDescription2.Name = "txtMarketDescription2";
             this.txtMarketDescription2.ReadOnly = true;
-            this.txtMarketDescription2.Size = new System.Drawing.Size(541, 39);
+            this.txtMarketDescription2.Size = new System.Drawing.Size(208, 20);
             this.txtMarketDescription2.TabIndex = 31;
             this.txtMarketDescription2.TabStop = false;
             // 
             // cmdGet2
             // 
             this.cmdGet2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdGet2.Location = new System.Drawing.Point(36, 57);
+            this.cmdGet2.Location = new System.Drawing.Point(14, 24);
             this.cmdGet2.Name = "cmdGet2";
-            this.cmdGet2.Size = new System.Drawing.Size(151, 48);
+            this.cmdGet2.Size = new System.Drawing.Size(58, 20);
             this.cmdGet2.TabIndex = 30;
             this.cmdGet2.TabStop = false;
             this.cmdGet2.Text = "Picker";
@@ -816,10 +794,10 @@ namespace T4Example2CSharp
             // txtNet2
             // 
             this.txtNet2.BackColor = System.Drawing.Color.White;
-            this.txtNet2.Location = new System.Drawing.Point(1464, 119);
+            this.txtNet2.Location = new System.Drawing.Point(563, 50);
             this.txtNet2.Name = "txtNet2";
             this.txtNet2.ReadOnly = true;
-            this.txtNet2.Size = new System.Drawing.Size(99, 39);
+            this.txtNet2.Size = new System.Drawing.Size(38, 20);
             this.txtNet2.TabIndex = 47;
             this.txtNet2.TabStop = false;
             this.txtNet2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -828,10 +806,10 @@ namespace T4Example2CSharp
             // 
             this.txtBuys2.BackColor = System.Drawing.Color.White;
             this.txtBuys2.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.txtBuys2.Location = new System.Drawing.Point(1568, 119);
+            this.txtBuys2.Location = new System.Drawing.Point(603, 50);
             this.txtBuys2.Name = "txtBuys2";
             this.txtBuys2.ReadOnly = true;
-            this.txtBuys2.Size = new System.Drawing.Size(99, 39);
+            this.txtBuys2.Size = new System.Drawing.Size(38, 20);
             this.txtBuys2.TabIndex = 52;
             this.txtBuys2.TabStop = false;
             this.txtBuys2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -841,9 +819,9 @@ namespace T4Example2CSharp
             this.cmdBuy2.BackColor = System.Drawing.Color.RoyalBlue;
             this.cmdBuy2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdBuy2.ForeColor = System.Drawing.Color.White;
-            this.cmdBuy2.Location = new System.Drawing.Point(580, 172);
+            this.cmdBuy2.Location = new System.Drawing.Point(223, 72);
             this.cmdBuy2.Name = "cmdBuy2";
-            this.cmdBuy2.Size = new System.Drawing.Size(156, 47);
+            this.cmdBuy2.Size = new System.Drawing.Size(60, 20);
             this.cmdBuy2.TabIndex = 56;
             this.cmdBuy2.TabStop = false;
             this.cmdBuy2.Text = "Buy";
@@ -855,9 +833,9 @@ namespace T4Example2CSharp
             this.cmdSell2.BackColor = System.Drawing.Color.Crimson;
             this.cmdSell2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSell2.ForeColor = System.Drawing.Color.White;
-            this.cmdSell2.Location = new System.Drawing.Point(819, 172);
+            this.cmdSell2.Location = new System.Drawing.Point(315, 72);
             this.cmdSell2.Name = "cmdSell2";
-            this.cmdSell2.Size = new System.Drawing.Size(156, 47);
+            this.cmdSell2.Size = new System.Drawing.Size(60, 20);
             this.cmdSell2.TabIndex = 59;
             this.cmdSell2.TabStop = false;
             this.cmdSell2.Text = "Sell";
@@ -868,10 +846,10 @@ namespace T4Example2CSharp
             // 
             this.txtSells2.BackColor = System.Drawing.Color.White;
             this.txtSells2.ForeColor = System.Drawing.Color.Crimson;
-            this.txtSells2.Location = new System.Drawing.Point(1672, 119);
+            this.txtSells2.Location = new System.Drawing.Point(643, 50);
             this.txtSells2.Name = "txtSells2";
             this.txtSells2.ReadOnly = true;
-            this.txtSells2.Size = new System.Drawing.Size(99, 39);
+            this.txtSells2.Size = new System.Drawing.Size(38, 20);
             this.txtSells2.TabIndex = 54;
             this.txtSells2.TabStop = false;
             this.txtSells2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -879,10 +857,10 @@ namespace T4Example2CSharp
             // txtLastVol2
             // 
             this.txtLastVol2.BackColor = System.Drawing.Color.Honeydew;
-            this.txtLastVol2.Location = new System.Drawing.Point(1225, 119);
+            this.txtLastVol2.Location = new System.Drawing.Point(471, 50);
             this.txtLastVol2.Name = "txtLastVol2";
             this.txtLastVol2.ReadOnly = true;
-            this.txtLastVol2.Size = new System.Drawing.Size(72, 39);
+            this.txtLastVol2.Size = new System.Drawing.Size(28, 20);
             this.txtLastVol2.TabIndex = 37;
             this.txtLastVol2.TabStop = false;
             this.txtLastVol2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -890,10 +868,10 @@ namespace T4Example2CSharp
             // txtLastVolTotal2
             // 
             this.txtLastVolTotal2.BackColor = System.Drawing.Color.Honeydew;
-            this.txtLastVolTotal2.Location = new System.Drawing.Point(1303, 119);
+            this.txtLastVolTotal2.Location = new System.Drawing.Point(501, 50);
             this.txtLastVolTotal2.Name = "txtLastVolTotal2";
             this.txtLastVolTotal2.ReadOnly = true;
-            this.txtLastVolTotal2.Size = new System.Drawing.Size(156, 39);
+            this.txtLastVolTotal2.Size = new System.Drawing.Size(60, 20);
             this.txtLastVolTotal2.TabIndex = 38;
             this.txtLastVolTotal2.TabStop = false;
             this.txtLastVolTotal2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -901,9 +879,9 @@ namespace T4Example2CSharp
             // cmdSave
             // 
             this.cmdSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdSave.Location = new System.Drawing.Point(21, 935);
+            this.cmdSave.Location = new System.Drawing.Point(8, 392);
             this.cmdSave.Name = "cmdSave";
-            this.cmdSave.Size = new System.Drawing.Size(364, 62);
+            this.cmdSave.Size = new System.Drawing.Size(140, 26);
             this.cmdSave.TabIndex = 40;
             this.cmdSave.TabStop = false;
             this.cmdSave.Text = "Save Selected Markets";
@@ -912,9 +890,9 @@ namespace T4Example2CSharp
             // lblSaveInfo
             // 
             this.lblSaveInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSaveInfo.Location = new System.Drawing.Point(400, 935);
+            this.lblSaveInfo.Location = new System.Drawing.Point(154, 392);
             this.lblSaveInfo.Name = "lblSaveInfo";
-            this.lblSaveInfo.Size = new System.Drawing.Size(962, 62);
+            this.lblSaveInfo.Size = new System.Drawing.Size(370, 26);
             this.lblSaveInfo.TabIndex = 66;
             this.lblSaveInfo.Text = "Click Save to store the current markets in an XML file on the server.  The market" +
     "s will be loaded automatically on the next login.";
@@ -925,19 +903,18 @@ namespace T4Example2CSharp
             this.grpOrders.Controls.Add(this.lstOrders);
             this.grpOrders.Controls.Add(this.lblOrderInfo);
             this.grpOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpOrders.Location = new System.Drawing.Point(21, 1011);
+            this.grpOrders.Location = new System.Drawing.Point(8, 424);
             this.grpOrders.Name = "grpOrders";
-            this.grpOrders.Size = new System.Drawing.Size(2007, 453);
+            this.grpOrders.Size = new System.Drawing.Size(772, 190);
             this.grpOrders.TabIndex = 67;
             this.grpOrders.TabStop = false;
             this.grpOrders.Text = "Orders";
             // 
             // lstOrders
             // 
-            this.lstOrders.ItemHeight = 31;
-            this.lstOrders.Location = new System.Drawing.Point(21, 50);
+            this.lstOrders.Location = new System.Drawing.Point(8, 21);
             this.lstOrders.Name = "lstOrders";
-            this.lstOrders.Size = new System.Drawing.Size(1963, 283);
+            this.lstOrders.Size = new System.Drawing.Size(755, 134);
             this.lstOrders.TabIndex = 60;
             this.lstOrders.TabStop = false;
             this.lstOrders.DoubleClick += new System.EventHandler(this.lstOrders_DoubleClick);
@@ -945,9 +922,9 @@ namespace T4Example2CSharp
             // lblOrderInfo
             // 
             this.lblOrderInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderInfo.Location = new System.Drawing.Point(104, 396);
+            this.lblOrderInfo.Location = new System.Drawing.Point(40, 166);
             this.lblOrderInfo.Name = "lblOrderInfo";
-            this.lblOrderInfo.Size = new System.Drawing.Size(1648, 43);
+            this.lblOrderInfo.Size = new System.Drawing.Size(634, 18);
             this.lblOrderInfo.TabIndex = 67;
             this.lblOrderInfo.Text = "Double Click orders to Pull them.  Volume is displayed Filled/Working to clarify " +
     "which orders have been Pulled.";
@@ -973,17 +950,39 @@ namespace T4Example2CSharp
             this.grpMarket2.Controls.Add(this.txtLast2);
             this.grpMarket2.Controls.Add(this.txtOfferVol2);
             this.grpMarket2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpMarket2.Location = new System.Drawing.Point(21, 670);
+            this.grpMarket2.Location = new System.Drawing.Point(8, 281);
             this.grpMarket2.Name = "grpMarket2";
-            this.grpMarket2.Size = new System.Drawing.Size(2007, 250);
+            this.grpMarket2.Size = new System.Drawing.Size(772, 105);
             this.grpMarket2.TabIndex = 68;
             this.grpMarket2.TabStop = false;
             this.grpMarket2.Text = "Market 2";
             // 
+            // lblMode
+            // 
+            this.lblMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMode.Location = new System.Drawing.Point(687, 117);
+            this.lblMode.Name = "lblMode";
+            this.lblMode.Size = new System.Drawing.Size(43, 18);
+            this.lblMode.TabIndex = 68;
+            this.lblMode.Text = "Mode:";
+            this.lblMode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtMode
+            // 
+            this.txtMode.BackColor = System.Drawing.Color.White;
+            this.txtMode.ForeColor = System.Drawing.Color.Crimson;
+            this.txtMode.Location = new System.Drawing.Point(683, 137);
+            this.txtMode.Name = "txtMode";
+            this.txtMode.ReadOnly = true;
+            this.txtMode.Size = new System.Drawing.Size(80, 20);
+            this.txtMode.TabIndex = 69;
+            this.txtMode.TabStop = false;
+            this.txtMode.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // Form1
             // 
-            this.AutoScaleBaseSize = new System.Drawing.Size(13, 31);
-            this.ClientSize = new System.Drawing.Size(2572, 1840);
+            this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+            this.ClientSize = new System.Drawing.Size(788, 634);
             this.Controls.Add(this.grpMarket2);
             this.Controls.Add(this.grpOrders);
             this.Controls.Add(this.grpMarkets);
@@ -1096,8 +1095,8 @@ namespace T4Example2CSharp
                                 // Get the market.
                                 moHost.MarketData.GetMarket(mstrMarketID1, e =>
                                 {
-                                // Subscribe to market1.
-                                if (e.Markets.Count > 0)
+                                    // Subscribe to market1.
+                                    if (e.Markets.Count > 0)
                                         NewMarketSubscription(ref moMarket1, e.Markets.First());
                                 });
                                 break;
@@ -1108,8 +1107,8 @@ namespace T4Example2CSharp
                                 // Get the market.
                                 moHost.MarketData.GetMarket(mstrMarketID2, e =>
                                 {
-                                // Subscribe to market1.
-                                if (e.Markets.Count > 0)
+                                    // Subscribe to market1.
+                                    if (e.Markets.Count > 0)
                                         NewMarketSubscription(ref moMarket2, e.Markets.First());
                                 });
                                 break;

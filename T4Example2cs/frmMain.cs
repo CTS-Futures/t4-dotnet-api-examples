@@ -1095,8 +1095,8 @@ namespace T4Example2CSharp
                                 // Get the market.
                                 moHost.MarketData.GetMarket(mstrMarketID1, e =>
                                 {
-                                // Subscribe to market1.
-                                if (e.Markets.Count > 0)
+                                    // Subscribe to market1.
+                                    if (e.Markets.Count > 0)
                                         NewMarketSubscription(ref moMarket1, e.Markets.First());
                                 });
                                 break;
@@ -1107,8 +1107,8 @@ namespace T4Example2CSharp
                                 // Get the market.
                                 moHost.MarketData.GetMarket(mstrMarketID2, e =>
                                 {
-                                // Subscribe to market1.
-                                if (e.Markets.Count > 0)
+                                    // Subscribe to market1.
+                                    if (e.Markets.Count > 0)
                                         NewMarketSubscription(ref moMarket2, e.Markets.First());
                                 });
                                 break;

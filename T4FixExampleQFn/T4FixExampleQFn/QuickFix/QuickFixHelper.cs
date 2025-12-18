@@ -20,7 +20,7 @@ public static class QuickFixHelper
 
             string fullPath = Path.Combine(directoryPath, fileName);
 
-            string content = """
+            string content = $"""
                 [DEFAULT]
                 ConnectionType=initiator
                 SocketConnectHost=fix-sim.t4login.com
@@ -32,8 +32,8 @@ public static class QuickFixHelper
                 SSLProtocols=Tls12
                 HeartBtInt=30
                 ReconnectInterval=100
-                FileStorePath=..\..\..\..\Trace\logs\
-                FileLogPath=..\..\..\..\Trace\store\
+                FileStorePath={Path.Combine(directoryPath,"logs")}
+                FileLogPath={Path.Combine(directoryPath, "logs")}
 
                 [SESSION]
                 BeginString=FIX.4.2
@@ -43,7 +43,7 @@ public static class QuickFixHelper
                 EndTime=23:59:59
                 ResetOnLogon=Y
                 UseDataDictionary=Y
-                DataDictionary=QuickFix\FIX42.xml
+                DataDictionary={Path.Combine(directoryPath,"FIX42.xml")}
                 MarketDataRequest=Y
                 SecurityDefinitionRequest=Y
 
@@ -75,7 +75,7 @@ public static class QuickFixHelper
 
             string fullPath = Path.Combine(directoryPath, fileName);
 
-            string content = """
+            string content = $"""
                 [DEFAULT]
                 ConnectionType=initiator
                 SocketConnectHost=fix-sim.t4login.com
@@ -87,8 +87,8 @@ public static class QuickFixHelper
                 SSLProtocols=Tls12
                 HeartBtInt=30
                 ReconnectInterval=100
-                FileStorePath=..\..\..\..\Trace\logs\
-                FileLogPath=..\..\..\..\Trace\store\
+                FileStorePath={Path.Combine(directoryPath,"logs")}
+                FileLogPath={Path.Combine(directoryPath, "logs")}
 
                 [SESSION]
                 BeginString=FIX.4.2
@@ -98,7 +98,7 @@ public static class QuickFixHelper
                 EndTime=23:59:59
                 ResetOnLogon=Y
                 UseDataDictionary=Y
-                DataDictionary=QuickFix\FIX42.xml
+                DataDictionary={Path.Combine(directoryPath, "QuickFix", "FIX42.xml")}
                 MarketDataRequest=Y
                 SecurityDefinitionRequest=Y
 

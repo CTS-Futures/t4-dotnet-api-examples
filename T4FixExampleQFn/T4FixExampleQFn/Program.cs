@@ -52,15 +52,15 @@ namespace FixInitiator
                 {
 
                     // Create the sTunnel configuration file.
-                   STunnelHelper.WriteStunnelConf(AppContext.BaseDirectory, @"stunnel\local.conf");
+                   STunnelHelper.WriteStunnelConf(Path.Combine(AppContext.BaseDirectory,"STunnel"), "local.conf");
 
                     // Create quickfix sTunnel compatible initiator file.
-                    QuickFixHelper.WriteStunnelInitiator(AppContext.BaseDirectory, @"quickfix\initiator.cfg");
+                    QuickFixHelper.WriteStunnelInitiator(Path.Combine(AppContext.BaseDirectory, "QuickFIX"), "initiator.cfg");
 
                     ProcessStartInfo psi = new ProcessStartInfo
                     {
-                        FileName = Path.Combine(AppContext.BaseDirectory, @"stunnel\local.conf"),
-                        Arguments = Path.Combine (AppContext.BaseDirectory, @"stunnel\local.conf"),
+                        FileName = Path.Combine(AppContext.BaseDirectory,"STunnel", "local.conf"),
+                        Arguments = Path.Combine (AppContext.BaseDirectory, "STunnel", "local.conf"),
                         UseShellExecute = false,
                         CreateNoWindow = true
                     };
@@ -75,7 +75,7 @@ namespace FixInitiator
                 {
 
                     // Create quickfix ssl socket compatible initiator file.
-                    QuickFixHelper .WriteSSLSocketInitiator (AppContext.BaseDirectory, @"quickfix\initiator.cfg");
+                    QuickFixHelper .WriteSSLSocketInitiator (Path.Combine(AppContext.BaseDirectory, "QuickFIX"), "initiator.cfg");
 
                 }
 

@@ -76,7 +76,7 @@ namespace T4FixExampleQFn.QuickFix
             SettingsStore.Save(settings);
 
             // Set the path to the quickfix initiator file.
-            QuickFixInitiatorConfigFilePath = Path.Join(AppContext.BaseDirectory,@"quickfix\initiator.cfg");
+            QuickFixInitiatorConfigFilePath = Path.Combine(AppContext.BaseDirectory,"QuickFIX","initiator.cfg");
 
             Console.WriteLine("Enter one of the following commands:");
             Console.WriteLine("L - Recommended Logon");

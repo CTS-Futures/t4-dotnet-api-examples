@@ -156,28 +156,28 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CTS.T4ChartDataAPI">
-      <Version>4.7.72.348</Version>
+      <Version>4.7.72.405</Version>
     </PackageReference>
     <PackageReference Include="CTS.T4Data">
-      <Version>4.7.72.348</Version>
+      <Version>4.7.72.405</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.4</Version>
     </PackageReference>
     <PackageReference Include="SMBLibrary">
-      <Version>1.5.4.1</Version>
+      <Version>1.5.5.1</Version>
     </PackageReference>
     <PackageReference Include="System.Configuration.ConfigurationManager">
-      <Version>10.0.0-rc.2.25502.107</Version>
+      <Version>10.0.3</Version>
     </PackageReference>
     <PackageReference Include="System.Diagnostics.EventLog">
-      <Version>10.0.0-rc.2.25502.107</Version>
+      <Version>10.0.3</Version>
     </PackageReference>
     <PackageReference Include="System.Diagnostics.PerformanceCounter">
-      <Version>10.0.0-rc.2.25502.107</Version>
+      <Version>10.0.3</Version>
     </PackageReference>
     <PackageReference Include="System.Management">
-      <Version>10.0.0-rc.2.25502.107</Version>
+      <Version>10.0.3</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

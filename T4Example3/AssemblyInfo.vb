@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("T4 API Example")> 
 <Assembly: AssemblyCompany("Cunningham Trading Systems, LLC")> 
 <Assembly: AssemblyProduct("T4")>
-<Assembly: AssemblyCopyright("Copyright © 2004-2018, Cunningham Trading Systems, LLC")>
+<Assembly: AssemblyCopyright("Copyright © 2004-2026, Cunningham Trading Systems, LLC")>
 <Assembly: AssemblyTrademark("")> 
 <Assembly: CLSCompliant(True)> 
 

@@ -1,19 +1,17 @@
+﻿using SMBLibrary.RPC;
 using System;
 using System.Collections;
-using System.Windows.Forms;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
-
-
-// Import the T4 definitions namespace.
-using T4;
-
-// Import the API namespace.
-using T4.API;
-
+using System.Windows.Forms;
 // Import XML for saving and retriving markets.
 using System.Xml;
-using System.Collections.Generic;
+// Import the T4 definitions namespace.
+using T4;
+// Import the API namespace.
+using T4.API;
 
 // Generic collections.
 
@@ -92,6 +90,8 @@ namespace T4Example2CSharp
         private GroupBox grpMarket2;
         internal TextBox txtMode;
         internal Label lblMode;
+        private Label label2;
+        private TextBox txtOrderDetails;
 
         /// <summary>
         /// Required designer variable.
@@ -149,6 +149,8 @@ namespace T4Example2CSharp
             this.lblAccount = new System.Windows.Forms.Label();
             this.txtCash = new System.Windows.Forms.TextBox();
             this.grpMarkets = new System.Windows.Forms.GroupBox();
+            this.txtMode = new System.Windows.Forms.TextBox();
+            this.lblMode = new System.Windows.Forms.Label();
             this.lblMisc1 = new System.Windows.Forms.Label();
             this.cmdRunMisc1 = new System.Windows.Forms.Button();
             this.cboMisc1 = new System.Windows.Forms.ComboBox();
@@ -197,11 +199,11 @@ namespace T4Example2CSharp
             this.cmdSave = new System.Windows.Forms.Button();
             this.lblSaveInfo = new System.Windows.Forms.Label();
             this.grpOrders = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtOrderDetails = new System.Windows.Forms.TextBox();
             this.lstOrders = new System.Windows.Forms.ListBox();
             this.lblOrderInfo = new System.Windows.Forms.Label();
             this.grpMarket2 = new System.Windows.Forms.GroupBox();
-            this.lblMode = new System.Windows.Forms.Label();
-            this.txtMode = new System.Windows.Forms.TextBox();
             this.grpAccountPicker.SuspendLayout();
             this.grpMarkets.SuspendLayout();
             this.grpOrders.SuspendLayout();
@@ -374,6 +376,28 @@ namespace T4Example2CSharp
             this.grpMarkets.TabIndex = 66;
             this.grpMarkets.TabStop = false;
             this.grpMarkets.Text = "Market 1";
+            // 
+            // txtMode
+            // 
+            this.txtMode.BackColor = System.Drawing.Color.White;
+            this.txtMode.ForeColor = System.Drawing.Color.Crimson;
+            this.txtMode.Location = new System.Drawing.Point(683, 137);
+            this.txtMode.Name = "txtMode";
+            this.txtMode.ReadOnly = true;
+            this.txtMode.Size = new System.Drawing.Size(80, 20);
+            this.txtMode.TabIndex = 69;
+            this.txtMode.TabStop = false;
+            this.txtMode.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblMode
+            // 
+            this.lblMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMode.Location = new System.Drawing.Point(687, 117);
+            this.lblMode.Name = "lblMode";
+            this.lblMode.Size = new System.Drawing.Size(43, 18);
+            this.lblMode.TabIndex = 68;
+            this.lblMode.Text = "Mode:";
+            this.lblMode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblMisc1
             // 
@@ -900,15 +924,39 @@ namespace T4Example2CSharp
             // 
             // grpOrders
             // 
+            this.grpOrders.Controls.Add(this.label2);
+            this.grpOrders.Controls.Add(this.txtOrderDetails);
             this.grpOrders.Controls.Add(this.lstOrders);
             this.grpOrders.Controls.Add(this.lblOrderInfo);
             this.grpOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpOrders.Location = new System.Drawing.Point(8, 424);
             this.grpOrders.Name = "grpOrders";
-            this.grpOrders.Size = new System.Drawing.Size(772, 190);
+            this.grpOrders.Size = new System.Drawing.Size(772, 365);
             this.grpOrders.TabIndex = 67;
             this.grpOrders.TabStop = false;
             this.grpOrders.Text = "Orders";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 197);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.TabIndex = 69;
+            this.label2.Text = "Details";
+            // 
+            // txtOrderDetails
+            // 
+            this.txtOrderDetails.BackColor = System.Drawing.SystemColors.Window;
+            this.txtOrderDetails.Location = new System.Drawing.Point(8, 213);
+            this.txtOrderDetails.Multiline = true;
+            this.txtOrderDetails.Name = "txtOrderDetails";
+            this.txtOrderDetails.ReadOnly = true;
+            this.txtOrderDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtOrderDetails.Size = new System.Drawing.Size(755, 136);
+            this.txtOrderDetails.TabIndex = 68;
+            this.txtOrderDetails.TabStop = false;
+            this.txtOrderDetails.WordWrap = true;
             // 
             // lstOrders
             // 
@@ -918,16 +966,17 @@ namespace T4Example2CSharp
             this.lstOrders.TabIndex = 60;
             this.lstOrders.TabStop = false;
             this.lstOrders.DoubleClick += new System.EventHandler(this.lstOrders_DoubleClick);
+            this.lstOrders.SelectedIndexChanged += new System.EventHandler(this.lstOrders_SelectedIndexChanged);
             // 
             // lblOrderInfo
             // 
             this.lblOrderInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderInfo.Location = new System.Drawing.Point(40, 166);
+            this.lblOrderInfo.Location = new System.Drawing.Point(8, 166);
             this.lblOrderInfo.Name = "lblOrderInfo";
-            this.lblOrderInfo.Size = new System.Drawing.Size(634, 18);
+            this.lblOrderInfo.Size = new System.Drawing.Size(755, 31);
             this.lblOrderInfo.TabIndex = 67;
             this.lblOrderInfo.Text = "Double Click orders to Pull them.  Volume is displayed Filled/Working to clarify " +
-    "which orders have been Pulled.";
+    "which orders have been Pulled. Select an order to view full details below.";
             this.lblOrderInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // grpMarket2
@@ -957,32 +1006,10 @@ namespace T4Example2CSharp
             this.grpMarket2.TabStop = false;
             this.grpMarket2.Text = "Market 2";
             // 
-            // lblMode
-            // 
-            this.lblMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMode.Location = new System.Drawing.Point(687, 117);
-            this.lblMode.Name = "lblMode";
-            this.lblMode.Size = new System.Drawing.Size(43, 18);
-            this.lblMode.TabIndex = 68;
-            this.lblMode.Text = "Mode:";
-            this.lblMode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtMode
-            // 
-            this.txtMode.BackColor = System.Drawing.Color.White;
-            this.txtMode.ForeColor = System.Drawing.Color.Crimson;
-            this.txtMode.Location = new System.Drawing.Point(683, 137);
-            this.txtMode.Name = "txtMode";
-            this.txtMode.ReadOnly = true;
-            this.txtMode.Size = new System.Drawing.Size(80, 20);
-            this.txtMode.TabIndex = 69;
-            this.txtMode.TabStop = false;
-            this.txtMode.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // Form1
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
-            this.ClientSize = new System.Drawing.Size(788, 634);
+            this.ClientSize = new System.Drawing.Size(788, 801);
             this.Controls.Add(this.grpMarket2);
             this.Controls.Add(this.grpOrders);
             this.Controls.Add(this.grpMarkets);
@@ -997,6 +1024,7 @@ namespace T4Example2CSharp
             this.grpMarkets.ResumeLayout(false);
             this.grpMarkets.PerformLayout();
             this.grpOrders.ResumeLayout(false);
+            this.grpOrders.PerformLayout();
             this.grpMarket2.ResumeLayout(false);
             this.grpMarket2.PerformLayout();
             this.ResumeLayout(false);
@@ -1041,6 +1069,9 @@ namespace T4Example2CSharp
         // References to marketid's retrieved from saved settings.
         internal string mstrMarketID1;
         internal string mstrMarketID2;
+
+        // Track margin inquiry responses separately since they don't create orders
+        private List<MarginInquiryInfo> moMarginInquiries = new List<MarginInquiryInfo>();
 
         #endregion
 
@@ -1342,6 +1373,42 @@ namespace T4Example2CSharp
             // Just refresh the current account.
             DisplayAccount();
         }
+        private void moAccount_MarginInquiryResponse(OrderMarginInquiryResponseEventArgs e)
+        {
+            // Invoke the update.
+            // This places process on GUI thread.
+            if (this.InvokeRequired)
+            {
+                BeginInvoke(new Account.OrderMarginInquiryResponseEventHandler(OnOrderMarginInquiryResponse), new Object[] { e });
+            }
+            else
+            {
+                OnOrderMarginInquiryResponse(e);
+            }
+        }
+
+        private void OnOrderMarginInquiryResponse(OrderMarginInquiryResponseEventArgs e)
+        {
+            try
+            {
+                // Lock access while modifying the collection
+                lock (moMarginInquiries)
+                {
+                    // Remove the pending entry for this request if it exists
+                    moMarginInquiries.RemoveAll(m => m.RequestID == e.RequestID && m.IsPending);
+
+                    // Add the completed response to our tracking list
+                    moMarginInquiries.Add(new MarginInquiryInfo(e));
+                }
+
+                // Redraw the orders list to include the new response
+                DisplayOrders();
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine("OnMarginInquiryResponse error: " + ex);
+            }
+        }
 
         private void DisplayAccounts()
         {
@@ -1506,6 +1573,7 @@ namespace T4Example2CSharp
                     moAccount.OrderUpdate += new T4.API.Account.OrderUpdateEventHandler(moAccount_OrderUpdate);
                     moAccount.PositionUpdate += new T4.API.Account.PositionUpdateEventHandler(moAccounts_PositionUpdate);
                     moAccount.AccountUpdate += new T4.API.Account.AccountUpdateEventHandler(moAccounts_AccountUpdate);
+                    moAccount.OrderMarginInquiryResponse += new T4.API.Account.OrderMarginInquiryResponseEventHandler(moAccount_MarginInquiryResponse);
 
                     // Display the current account balance.
                     DisplayAccount();
@@ -1528,9 +1596,9 @@ namespace T4Example2CSharp
         // Initialise the api when the application starts.
         private void frmMain_Load(object sender, System.EventArgs e)
         {
-
+                
             moHost = Host.Login(APIServerType.Simulator, "T4Example", "112A04B0-5AAF-42F4-994E-FA7CB959C60B");
-
+             
             // Check for success.
 
             if (moHost == null)
@@ -1581,6 +1649,7 @@ namespace T4Example2CSharp
                     moAccount.OrderUpdate -= new T4.API.Account.OrderUpdateEventHandler(moAccount_OrderUpdate);
                     moAccount.PositionUpdate -= new T4.API.Account.PositionUpdateEventHandler(moAccounts_PositionUpdate);
                     moAccount.AccountUpdate -= new T4.API.Account.AccountUpdateEventHandler(moAccounts_AccountUpdate);
+                    moAccount.OrderMarginInquiryResponse -= new T4.API.Account.OrderMarginInquiryResponseEventHandler(moAccount_MarginInquiryResponse);
                 }
 
                 // Dispose of the api.
@@ -1973,6 +2042,211 @@ namespace T4Example2CSharp
             }
         }
 
+        private void lstOrders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (lstOrders.SelectedItem == null)
+                {
+                    txtOrderDetails.Clear();
+                    return;
+                }
+
+                var selectedItem = lstOrders.SelectedItem;
+
+                if (selectedItem is OrderInfo orderInfo)
+                {
+                    DisplayOrderDetails(orderInfo.Order);
+                }
+                else if (selectedItem is MarginInquiryInfo marginInfo)
+                {
+                    DisplayMarginInquiryDetails(marginInfo);
+                }
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine("Error in lstOrders_SelectedIndexChanged: " + ex.ToString());
+                txtOrderDetails.Text = "Error displaying details: " + ex.Message;
+            }
+        }
+
+        private void DisplayOrderDetails(Order order)
+        {
+            var details = new System.Text.StringBuilder();
+
+            details.AppendLine("═══════════════════════════════════════════════════════════════");
+            details.AppendLine("                         ORDER DETAILS");
+            details.AppendLine("═══════════════════════════════════════════════════════════════");
+            details.AppendLine();
+
+            // Basic Information
+            details.AppendLine("BASIC INFORMATION:");
+            details.AppendLine($"  Market:           {order.Market.Description}");
+            details.AppendLine($"  Side:             {order.BuySell}");
+            details.AppendLine($"  Order Type:       {order.PriceType}");
+            details.AppendLine($"  Time Type:        {order.TimeType}");
+            if (!string.IsNullOrEmpty(order.Tag))
+                details.AppendLine($"  Tag:              {order.Tag}");
+            details.AppendLine();
+
+            // Volume Information
+            details.AppendLine("VOLUME:");
+            details.AppendLine($"  Original:         {order.NewVolume}");
+            details.AppendLine($"  Working:          {order.CurrentVolume}");
+            details.AppendLine($"  Filled:           {order.TotalFillVolume}");
+            if (order.MaxVolume > 0)
+                details.AppendLine($"  Max Volume:       {order.MaxVolume}");
+            if (order.CurrentMaxShow > 0)
+                details.AppendLine($"  Max Show:         {order.CurrentMaxShow}");
+            details.AppendLine();
+
+            // Price Information
+            details.AppendLine("PRICES:");
+            if (order.CurrentLimitPrice.HasValue)
+                details.AppendLine($"  Limit:            {order.Market.PriceToDisplay(order.CurrentLimitPrice.Value)}");
+            if (order.CurrentStopPrice.HasValue)
+                details.AppendLine($"  Stop:             {order.Market.PriceToDisplay(order.CurrentStopPrice.Value)}");
+            if (order.TrailPrice.HasValue)
+                details.AppendLine($"  Trail:            {order.Market.PriceToDisplay(order.TrailPrice.Value)}");
+            if (order.AverageFillPrice() > 0)
+                details.AppendLine($"  Avg Fill:         {order.Market.PriceToDisplay(order.AverageFillPrice())}");
+            details.AppendLine();
+
+            // Status Information
+            details.AppendLine("STATUS:");
+            details.AppendLine($"  Current:          {order.Status}");
+            if (!string.IsNullOrEmpty(order.StatusDetail))
+                details.AppendLine($"  Detail:           {order.StatusDetail}");
+            details.AppendLine($"  Is Working:       {order.IsWorking}");
+            details.AppendLine($"  Activation:       {order.ActivationType}");
+            details.AppendLine();
+
+            // Timing Information
+            details.AppendLine("TIMING:");
+            details.AppendLine($"  Submitted:        {order.SubmitTime:yyyy-MM-dd HH:mm:ss.fff}");
+            if (order.ActivationData !=null)
+                details.AppendLine($"  Activated:        {order.ActivationData.SubmitTime:yyyy-MM-dd HH:mm:ss.fff}");
+            if (order.Time != DateTime.MinValue)
+                details.AppendLine($"  Last Update:      {order.Time:yyyy-MM-dd HH:mm:ss.fff}");
+            details.AppendLine();
+
+            // Account Information
+            details.AppendLine("ACCOUNT:");
+            details.AppendLine($"  Account ID:       {order.Account.AccountID}");
+            details.AppendLine($"  User:             {order.Username}");
+            details.AppendLine();
+
+            // Exchange Information
+            details.AppendLine("EXCHANGE:");
+            details.AppendLine($"  Order ID:         {order.UniqueID}");
+            if (!string.IsNullOrEmpty(order.ExchangeOrderID))
+                details.AppendLine($"  Exchange ID:      {order.ExchangeOrderID}");
+            details.AppendLine($"  Link Type:        {order.OrderLink}");
+            if (!string.IsNullOrEmpty(order.OrderLink.ToString()))
+                details.AppendLine($"  Link ID:          {order.OrderLink}");
+
+            txtOrderDetails.Text = details.ToString();
+        }
+
+        private void DisplayMarginInquiryDetails(MarginInquiryInfo inquiry)
+        {
+            var details = new System.Text.StringBuilder();
+
+            details.AppendLine("═══════════════════════════════════════════════════════════════");
+            if (inquiry.IsPending)
+                details.AppendLine("                   MARGIN INQUIRY PENDING");
+            else
+                details.AppendLine("                   MARGIN INQUIRY RESPONSE");
+            details.AppendLine("═══════════════════════════════════════════════════════════════");
+            details.AppendLine();
+
+            // Request Information
+            details.AppendLine("REQUEST INFORMATION:");
+            details.AppendLine($"  Request ID:                       {inquiry.RequestID}");
+            details.AppendLine($"  Account:                          {inquiry.AccountID}");
+            details.AppendLine($"  Market:                           {inquiry.MarketID}");
+            if (!string.IsNullOrEmpty(inquiry.MarketDescription) && inquiry.MarketDescription != inquiry.MarketID)
+                details.AppendLine($"  Description:                      {inquiry.MarketDescription}");
+            if (inquiry.BuySell != 0)
+                details.AppendLine($"  Side:                             {inquiry.BuySell}");
+            if (inquiry.LimitPrice != 0)
+                details.AppendLine($"  Limit Price:                      {inquiry.LimitPrice}");
+            details.AppendLine($"  Response Time:                    {inquiry.ResponseTime:yyyy-MM-dd HH:mm:ss.fff}");
+            details.AppendLine();
+
+            if (inquiry.IsPending)
+            {
+                details.AppendLine("STATUS:");
+                details.AppendLine($"  Current:                          PENDING");
+                details.AppendLine();
+                details.AppendLine("Waiting for margin inquiry response from server...");
+            }
+            else if (inquiry.Success)
+            {
+                details.AppendLine("STATUS:");
+                details.AppendLine($"  Current:                          SUCCESS");
+                details.AppendLine();
+
+                // Current Account Values (before order)
+                details.AppendLine("CURRENT ACCOUNT VALUES (before order):");
+                if (inquiry.AccountCurrentMargin.HasValue)
+                    details.AppendLine($"  Current Margin:                   {inquiry.AccountCurrentMargin.Value:#,##0.00}");
+                if (inquiry.AccountCurrentPreTradeMargin.HasValue)
+                    details.AppendLine($"  Current Pre-Trade Margin:         {inquiry.AccountCurrentPreTradeMargin.Value:#,##0.00}");
+                if (inquiry.AccountCurrentDayMargin.HasValue)
+                    details.AppendLine($"  Current Day Margin:               {inquiry.AccountCurrentDayMargin.Value:#,##0.00}");
+                if (inquiry.AccountCurrentFullMargin.HasValue)
+                    details.AppendLine($"  Current Full Margin:              {inquiry.AccountCurrentFullMargin.Value:#,##0.00}");
+                if (inquiry.AccountCurrentAvailableCash.HasValue)
+                    details.AppendLine($"  Current Available Cash:           {inquiry.AccountCurrentAvailableCash.Value:#,##0.00}");
+                details.AppendLine();
+
+                // Account Values With Order
+                details.AppendLine("ACCOUNT VALUES WITH ORDER:");
+                if (inquiry.AccountMarginWithOrder.HasValue)
+                    details.AppendLine($"  Margin w/ Order:                  {inquiry.AccountMarginWithOrder.Value:#,##0.00}");
+                if (inquiry.AccountPreTradeMarginWithOrder.HasValue)
+                    details.AppendLine($"  Pre-Trade Margin w/ Order:        {inquiry.AccountPreTradeMarginWithOrder.Value:#,##0.00}");
+                if (inquiry.AccountDayMarginWithOrder.HasValue)
+                    details.AppendLine($"  Day Margin w/ Order:              {inquiry.AccountDayMarginWithOrder.Value:#,##0.00}");
+                if (inquiry.AccountFullMarginWithOrder.HasValue)
+                    details.AppendLine($"  Full Margin w/ Order:             {inquiry.AccountFullMarginWithOrder.Value:#,##0.00}");
+                details.AppendLine();
+
+                // Margin Impact
+                details.AppendLine("MARGIN IMPACT:");
+                if (inquiry.MarginImpact.HasValue)
+                    details.AppendLine($"  Margin Impact:                    {inquiry.MarginImpact.Value:+#,##0.00;-#,##0.00;0.00}");
+                if (inquiry.PreTradeMarginImpact.HasValue)
+                    details.AppendLine($"  Pre-Trade Margin Impact:          {inquiry.PreTradeMarginImpact.Value:+#,##0.00;-#,##0.00;0.00}");
+                if (inquiry.DayMarginImpact.HasValue)
+                    details.AppendLine($"  Day Margin Impact:                {inquiry.DayMarginImpact.Value:+#,##0.00;-#,##0.00;0.00}");
+                if (inquiry.FullMarginImpact.HasValue)
+                    details.AppendLine($"  Full Margin Impact:               {inquiry.FullMarginImpact.Value:+#,##0.00;-#,##0.00;0.00}");
+
+                // Percent change on primary margin
+                if (inquiry.AccountCurrentMargin.HasValue && inquiry.AccountCurrentMargin.Value != 0 && inquiry.MarginImpact.HasValue)
+                {
+                    decimal percentChange = (inquiry.MarginImpact.Value / inquiry.AccountCurrentMargin.Value) * 100;
+                    details.AppendLine($"  Margin Impact %:                  {percentChange:+0.00;-0.00;0.00}%");
+                }
+            }
+            else
+            {
+                details.AppendLine("STATUS:");
+                details.AppendLine($"  Current:                          FAILED");
+                details.AppendLine();
+                details.AppendLine("ERROR DETAILS:");
+                details.AppendLine($"  {inquiry.ErrorMessage}");
+            }
+
+            details.AppendLine();
+            details.AppendLine("═══════════════════════════════════════════════════════════════");
+            details.AppendLine("Note: This was a margin inquiry only - no actual order was placed.");
+
+            txtOrderDetails.Text = details.ToString();
+        }
+
         #endregion
 
         #region  Order Data
@@ -2002,7 +2276,6 @@ namespace T4Example2CSharp
         {
             try
             {
-
                 // Lock the api.
                 moHost.EnterLock();
 
@@ -2012,12 +2285,31 @@ namespace T4Example2CSharp
                 // Clear and repopulate the list.
                 lstOrders.Items.Clear();
 
-                // Itterate through the orders, newest is first.
+                // Collect all items (margin inquiries + orders) with timestamps
+                var allItems = new List<(DateTime timestamp, object item)>();
+
+                // Add margin inquiry responses with their timestamps 
+                lock (moMarginInquiries)
+                {
+                    foreach (var inquiry in moMarginInquiries)
+                    {
+                        allItems.Add((inquiry.ResponseTime, inquiry));
+                    }
+                }
+
+                // Add actual orders with their timestamps
                 foreach (Order oOrder in moAccount.Orders.GetSortedList())
                 {
-                    // Display some order details.
-                    lstOrders.Items.Add(new OrderInfo(oOrder));
+                    allItems.Add((oOrder.SubmitTime, new OrderInfo(oOrder)));
+                }
 
+                // Sort by timestamp, most recent first
+                var sortedItems = allItems.OrderByDescending(x => x.timestamp);
+
+                // Add sorted items to the listbox
+                foreach (var item in sortedItems)
+                {
+                    lstOrders.Items.Add(item.item);
                 }
             }
             catch (Exception ex)
@@ -2035,6 +2327,7 @@ namespace T4Example2CSharp
             }
         }
 
+
         /// <summary>
         /// Class to hold and display details of an order in a list box.
         /// </summary>
@@ -2048,16 +2341,158 @@ namespace T4Example2CSharp
 
             public override string ToString()
             {
-                return Order.Market.Description + "   " +
-                        Order.BuySell.ToString() + "   " +
-                        Order.TotalFillVolume + "/" + Order.CurrentVolume + " @ " +
-                        Order.Market.PriceToDisplay(Order.CurrentLimitPrice) + "   " +
-                        Order.Status.ToString() + "   " +
-                        Order.StatusDetail + "  " +
-                        Order.SubmitTime;
+                // Include Tag if present (e.g., "Margin Inquiry")
+                string tag = string.IsNullOrEmpty(Order.Tag) ? "" : $"[{Order.Tag}]";
+
+                if (tag== "[Margin Inquiry]")
+                {
+                    return tag + "  " + Order.Market.Description + " "+
+                          Order.BuySell.ToString() + "   " +
+                          Order.NewVolume + " @ " +
+                          Order.Market.PriceToDisplay(Order.NewLimitPrice) + "   " +
+                          Order.Status.ToString() + "   " +
+                          Order.StatusDetail + "  " +
+                          Order.SubmitTime;
+                }
+                else
+                {
+                    return Order.Market.Description + "   " +
+                          Order.BuySell.ToString() + "   " +
+                          Order.TotalFillVolume + "/" + Order.CurrentVolume + " @ " +
+                          Order.Market.PriceToDisplay(Order.CurrentLimitPrice) + "   " +
+                          Order.Status.ToString() + "   " +
+                          Order.StatusDetail + "  " +
+                          Order.SubmitTime;
+                }                      
+                   
             }
         }
 
+        /// <summary>
+        /// Class to hold and display margin inquiry responses (which are not orders).
+        /// </summary>
+        class MarginInquiryInfo
+        {
+            public readonly string AccountID;
+            public readonly string MarketID;
+            public readonly string MarketDescription;
+            public readonly DateTime ResponseTime;
+            public readonly string RequestID;
+            public readonly bool Success;
+            public readonly bool IsPending;
+            public readonly BuySell BuySell;
+            public readonly decimal LimitPrice;
+            public readonly string ErrorMessage;
+
+            // Current account margin values (before this order)
+            public readonly decimal? AccountCurrentMargin;
+            public readonly decimal? AccountCurrentPreTradeMargin;
+            public readonly decimal? AccountCurrentDayMargin;
+            public readonly decimal? AccountCurrentFullMargin;
+            public readonly decimal? AccountCurrentAvailableCash;
+
+            // Account margin values with this order
+            public readonly decimal? AccountMarginWithOrder;
+            public readonly decimal? AccountPreTradeMarginWithOrder;
+            public readonly decimal? AccountDayMarginWithOrder;
+            public readonly decimal? AccountFullMarginWithOrder;
+
+            // Margin impact values
+            public readonly decimal? MarginImpact;
+            public readonly decimal? PreTradeMarginImpact;
+            public readonly decimal? DayMarginImpact;
+            public readonly decimal? FullMarginImpact;
+
+            // Summary for list display
+            public readonly string MarginDetails;
+
+            /// <summary>
+            /// Constructor for a pending margin inquiry request (before response arrives).
+            /// </summary>
+            public MarginInquiryInfo(string requestID, string accountID, string marketID, string marketDescription, BuySell buySell, decimal limitPrice)
+            {
+                RequestID = requestID;
+                AccountID = accountID;
+                MarketID = marketID;
+                MarketDescription = marketDescription;
+                BuySell = buySell;
+                LimitPrice = limitPrice;
+                ResponseTime = DateTime.Now;
+                IsPending = true;
+                Success = false;
+                ErrorMessage = "";
+                MarginDetails = "Pending...";
+            }
+
+            /// <summary>
+            /// Constructor for a completed margin inquiry response.
+            /// </summary>
+            public MarginInquiryInfo(OrderMarginInquiryResponseEventArgs e)
+            {
+                AccountID = e.Response.AccountID;
+                MarketID = e.Response.MarketID;
+                MarketDescription = e.Response.MarketID;
+                ResponseTime = e.Response.Time;
+                RequestID = e.RequestID;
+                IsPending = false;
+                ErrorMessage = e.Response.ErrorMessage ?? "";
+                Success = string.IsNullOrEmpty(ErrorMessage);
+
+                // Current account margin values (before this order)
+                AccountCurrentMargin = e.Response.AccountCurrentMargin;
+                AccountCurrentPreTradeMargin = e.Response.AccountCurrentPreTradeMargin;
+                AccountCurrentDayMargin = e.Response.AccountCurrentDayMargin;
+                AccountCurrentFullMargin = e.Response.AccountCurrentFullMargin;
+                AccountCurrentAvailableCash = e.Response.AccountCurrentAvailableCash;
+
+                // Account margin values with this order
+                AccountMarginWithOrder = e.Response.AccountMarginWithOrder;
+                AccountPreTradeMarginWithOrder = e.Response.AccountPreTradeMarginWithOrder;
+                AccountDayMarginWithOrder = e.Response.AccountDayMarginWithOrder;
+                AccountFullMarginWithOrder = e.Response.AccountFullMarginWithOrder;
+
+                // Margin impact values
+                MarginImpact = e.Response.MarginImpact;
+                PreTradeMarginImpact = e.Response.PreTradeMarginImpact;
+                DayMarginImpact = e.Response.DayMarginImpact;
+                FullMarginImpact = e.Response.FullMarginImpact;
+
+                // Build margin details summary string for list display
+                var parts = new List<string>();
+
+                if (!Success)
+                {
+                    parts.Add($"FAILED: {ErrorMessage}");
+                }
+                else
+                {
+                    if (AccountCurrentMargin.HasValue)
+                        parts.Add($"Current Margin: {AccountCurrentMargin.Value:#,##0.00}");
+                    if (AccountMarginWithOrder.HasValue)
+                        parts.Add($"Margin w/ Order: {AccountMarginWithOrder.Value:#,##0.00}");
+                    if (MarginImpact.HasValue)
+                        parts.Add($"Impact: {MarginImpact.Value:+#,##0.00;-#,##0.00;0.00}");
+                }
+
+                MarginDetails = parts.Count > 0 ? string.Join(" | ", parts) : "No details";
+            }
+
+            public override string ToString()
+            {
+                if (IsPending)
+                {
+                    return $"[Margin Inquiry Pending]  {MarketDescription}   {BuySell} 1 @ {LimitPrice}   " +
+                           $"{MarginDetails}   " +
+                           $"{ResponseTime:HH:mm:ss}";
+                }
+
+                string status = Success ? "SUCCESS" : "FAILED";
+                return $"[Margin Inquiry Response]  {MarketID}   " +
+                       $"{status}   " +
+                       $"{MarginDetails}   " +
+                       $"{ResponseTime:HH:mm:ss}";
+            }
+        }
 
         #endregion
 
@@ -2065,6 +2500,7 @@ namespace T4Example2CSharp
 
         const string AUTOOCO = "Submit Auto OCO";
         const string FIVETICKSOFF = "Work 5 Ticks Off Market";
+        const string MARGININQUIRY = "Send Margin Inquiry";
 
         // Setup misc example combos.
         private void SetupMiscExamples()
@@ -2072,9 +2508,11 @@ namespace T4Example2CSharp
             // Add examples to combos.
             cboMisc1.Items.Add(AUTOOCO);
             cboMisc1.Items.Add(FIVETICKSOFF);
+            cboMisc1.Items.Add(MARGININQUIRY);
 
             cboMisc2.Items.Add(AUTOOCO);
             cboMisc2.Items.Add(FIVETICKSOFF);
+            cboMisc2.Items.Add(MARGININQUIRY);
 
             // Be sure the first items are selected.
             cboMisc1.SelectedIndex = 0;
@@ -2100,6 +2538,12 @@ namespace T4Example2CSharp
                             SubmitFiveTicksOff(moMarket1, BuySell.Buy, txtBid1.Text);
                             break;
                         }
+                    case MARGININQUIRY:
+                        {
+                            // Run margin inquiry.
+                            SubmitMarginInquiry(moMarket1, BuySell.Buy, txtBid1.Text);
+                            break;
+                        }
                 }
             }
         }
@@ -2121,6 +2565,12 @@ namespace T4Example2CSharp
                         {
                             // Run the five ticks off code.
                             SubmitFiveTicksOff(moMarket2, BuySell.Sell, txtOffer2.Text);
+                            break;
+                        }
+                    case MARGININQUIRY:
+                        {
+                            // Run margin inquiry.
+                            SubmitMarginInquiry(moMarket2, BuySell.Sell, txtOffer2.Text);
                             break;
                         }
                 }
@@ -2185,6 +2635,58 @@ namespace T4Example2CSharp
                     // Display the orders.
                     DisplayOrders();
 
+                }
+            }
+        }
+
+        #endregion
+
+        #region Margin Inquiry
+
+        // Submit a margin inquiry to check margin requirements without placing an actual order.
+        private void SubmitMarginInquiry(Market poMarket, BuySell peBuySell, string pstrLimitDisplayPrice)
+        {
+            if (moAccount != null && poMarket != null)
+            {
+                // Limit price reference.
+                decimal decLimitPrice = 0;
+                if (decimal.TryParse(pstrLimitDisplayPrice, out decLimitPrice))
+                {
+                    // Create the order submission object
+                    OrderSubmissionBatch oSubmission = moHost.GetMarginInquiryRequest();
+
+                    // Add with a tag so it appears clearly in the Orders pane
+                    oSubmission.Add(
+                        moAccount,
+                        poMarket,
+                        peBuySell,
+                        PriceType.Limit,
+                        1,
+                        decLimitPrice,
+                        null,
+                        "Margin Inquiry"); //Optional tag
+
+                    // Send the margin inquiry
+                    oSubmission.Send();
+
+                    // Add a pending entry to the margin inquiries list so it appears immediately
+                    lock (moMarginInquiries)
+                    {
+                        moMarginInquiries.Add(new MarginInquiryInfo(
+                            oSubmission.MarginInquiryRequestID,
+                            moAccount.AccountID,
+                            poMarket.MarketID,
+                            poMarket.Description,
+                            peBuySell,
+                            decLimitPrice));
+                    }
+
+                    // Display the orders to show the pending inquiry
+                    DisplayOrders();
+
+                    // Note: Margin inquiry does not create actual orders
+                    // Results will be returned via appropriate event handlers
+                    Trace.WriteLine($"Margin inquiry sent for {poMarket.Description} Request ID: {oSubmission.MarginInquiryRequestID}");
                 }
             }
         }
@@ -2335,7 +2837,7 @@ namespace T4Example2CSharp
                         MarketMode enCurrentMode = moMarket1.GetDepth().Mode;
 
                         // Check to see if the mode is actually changing.
-                        if (enCurrentMode != oSE.Mode)
+                        if (enCurrentMode != oSE?.Mode)
                         {
                             string sText = enCurrentMode.ToString();
 

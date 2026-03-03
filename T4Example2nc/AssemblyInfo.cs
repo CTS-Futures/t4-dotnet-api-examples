@@ -11,7 +11,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Cunningham Trading Systems, LLC")]
 [assembly: AssemblyProduct("T4")]
-[assembly: AssemblyCopyright("Copyright © 2025, Cunningham Trading Systems, LLC")]
+[assembly: AssemblyCopyright("Copyright © 2026, Cunningham Trading Systems, LLC")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

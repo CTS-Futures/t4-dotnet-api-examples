@@ -155,6 +155,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="CTS.T4API">
+      <Version>4.7.72.475</Version>
+    </PackageReference>
     <PackageReference Include="CTS.T4ChartDataAPI">
       <Version>4.7.72.405</Version>
     </PackageReference>

@@ -128,13 +128,13 @@
       <Version>4.7.72.405</Version>
     </PackageReference>
     <PackageReference Include="CTS.T4Definitions">
-      <Version>4.7.72.405</Version>
+      <Version>4.7.72.475</Version>
     </PackageReference>
     <PackageReference Include="CTS.T4Messages">
-      <Version>4.7.72.405</Version>
+      <Version>4.7.72.475</Version>
     </PackageReference>
     <PackageReference Include="CTS.T4TraceListener">
-      <Version>4.7.72.405</Version>
+      <Version>4.7.72.475</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.4</Version>

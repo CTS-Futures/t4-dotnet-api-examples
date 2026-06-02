@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>T4ContractQuoteFeed</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CTS.T4API" Version="4.7.72.475" />
+    <PackageReference Include="CTS.T4ChartDataAPI" Version="4.7.72.475" />
+    <PackageReference Include="CTS.T4Connections" Version="4.7.72.475" />
+    <PackageReference Include="CTS.T4Data" Version="4.7.72.475" />
+  </ItemGroup>
+
+</Project>

@@ -25,5 +25,5 @@ Example packages include:
 
 **.csproj**
 ```xml
-<PackageReference Include="CTS.T4API" Version="4.7.72.356" />
-<PackageReference Include="CTS.T4Data" Version="4.7.72.356" />
+<PackageReference Include="CTS.T4API" Version="4.7.72.533" />
+<PackageReference Include="CTS.T4Data" Version="4.7.72.533" />
